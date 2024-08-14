@@ -1,15 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Button } from './UiComponents/components/ui/button';
+
+
+import { Outlet } from 'react-router'
 
 
 function App() {
   return (
-    <div className="mb">
-      <Button >Add</Button>
-    </div>
-  );
+    <Outlet />
+  )
 }
 
-export default App;
+export default App
