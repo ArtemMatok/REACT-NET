@@ -1,11 +1,15 @@
 
 
 import { Outlet } from 'react-router'
+import { Header } from './Components/index'
 
 
 function App() {
   return (
-    <Outlet />
+    <main className='min-h-screen'>
+      <Header />
+      <Outlet />
+    </main>
   )
 }
 
