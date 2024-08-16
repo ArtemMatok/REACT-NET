@@ -1,7 +1,7 @@
+import { cn } from "@/ui/ui"
 import * as React from "react"
 import { Drawer as DrawerPrimitive } from "vaul"
 
-import { cn } from "src/ui"
 
 const Drawer = ({
   shouldScaleBackground = true,

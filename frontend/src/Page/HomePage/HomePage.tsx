@@ -1,11 +1,43 @@
-import React from 'react'
+import {
+  Categories,
+  Container,
+  Filters,
+  SortPopup,
+  Title,
+  TopBar,
+} from "@/Components/index";
 
-type Props = {}
+import React from "react";
+
+type Props = {};
 
 const HomePage = (props: Props) => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <>
+      <Container className="mt-5">
+        <Title text="All Pizza" size="lg" className="font-extrabold" />
+      </Container>
 
-export default HomePage
+      <TopBar />
+
+      <Container className="mt-10 pb-14">
+        <div className="flex gap-[60px]">
+          {/* Filtration */}
+          <div className="w-[250px]">
+            <Filters />
+          </div>
+
+          {/* List of products */}
+          <div className="flex-1"> 
+            <div className="flex flex-col gap-16">
+              List of products
+            </div>
+          </div>
+        </div>
+      </Container>
+      
+    </>
+  );
+};
+
+export default HomePage;
