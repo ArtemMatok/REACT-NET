@@ -2,6 +2,7 @@ import {
   Categories,
   Container,
   Filters,
+  ProductCard,
   SortPopup,
   Title,
   TopBar,
@@ -30,7 +31,7 @@ const HomePage = (props: Props) => {
           {/* List of products */}
           <div className="flex-1"> 
             <div className="flex flex-col gap-16">
-              List of products
+              
             </div>
           </div>
         </div>

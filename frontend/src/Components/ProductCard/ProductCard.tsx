@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../index";
+import { Button } from "@/ui/components/ui";
+import { Plus } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -26,7 +28,20 @@ export const ProductCard: React.FC<Props> = ({
 
         <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
         
-        <p className="text-sm text-gray-400"></p>
+        <p className="text-sm text-gray-400">
+            Souse, cheese, tomatoes, chiket, mozzarella
+        </p>
+
+        <div className="flex justify-between items-center mt-4">
+            <span className="text-[20px]">
+                from <b>${price}</b>
+            </span>
+
+            <Button variant={"secondary"} className="text-base font-bold">
+                <Plus size={20} className="mr-1" /> 
+                Add               
+            </Button>
+        </div>
       </Link>
     </div>
   );
