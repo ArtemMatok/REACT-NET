@@ -9,3 +9,4 @@ export {FilterCheckbox} from "../FilterCheckbox/FilterCheckbox"
 export {RangeSlider} from "../RangeSlider/RangeSlider"
 export {CheckboxFiltersGroup} from "../CheckboxFiltersGroup/CheckboxFiltersGroup"
 export {ProductCard} from "../ProductCard/ProductCard"
+export {ProductsGroupList} from '../ProductsGroupList/ProductsGroupList'
