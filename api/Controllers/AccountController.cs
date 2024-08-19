@@ -1,9 +1,11 @@
 ﻿using api.Data;
 using api.DTOs.AppUserDTOs;
 using api.Models;
+using api.Repositories.AuthToken;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -13,11 +15,14 @@ namespace api.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly ApplicationDbContext _context;
-
-        public AccountController(UserManager<AppUser> userManager, ApplicationDbContext context)
+        private readonly ITokenService _tokenService;
+        private readonly SignInManager<AppUser> _signingManager;
+        public AccountController(UserManager<AppUser> userManager, ApplicationDbContext context, ITokenService tokenService, SignInManager<AppUser> signingManager)
         {
             _userManager = userManager;
             _context = context;
+            _tokenService = tokenService;
+            _signingManager = signingManager;
         }
 
         [HttpPost("Register")]
@@ -43,7 +48,12 @@ namespace api.Controllers
                     var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
                     if(roleResult.Succeeded)
                     {
-                        return Ok("User created");
+                        return Ok(new NewUserDto()
+                        {
+                            Username = appUser.UserName,
+                            Email = appUser.Email,
+                            Token = _tokenService.CreateToken(appUser)
+                        });
                     }
                     else
                     {
@@ -61,6 +71,39 @@ namespace api.Controllers
 
                 return StatusCode(500, e.Message);
             }
+        }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var user = await _userManager.Users.FirstOrDefaultAsync(x=>x.Email == loginDto.Email);
+
+            if(user is null)
+            {
+                return Unauthorized("Invalid Email");
+            }
+
+            var result = await _signingManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if(!result.Succeeded)
+            {
+                return Unauthorized("Email not found and/or password incorrect");
+            }
+
+            return Ok(
+                new NewUserDto
+                {
+                    Username = user.UserName,
+                    Email = user.Email,
+                    Token = _tokenService.CreateToken(user)
+                }
+            );
+
+
         }
     }
 }
