@@ -16,13 +16,13 @@ namespace api.Controllers
             _ingredientRepository = ingredientRepository;
         }
 
-        [HttpGet("GetAllIngredients")]
+        [HttpGet("GetAllIngredientsFilter")]
         public async Task<IActionResult> GetAllIngredients()
         {
             var result = await _ingredientRepository.GetAllIngredients();
             if(result is null || result.Count == 0)
             {
-                return BadRequest("There wasn`t found any ingredients");
+                return NotFound();
             }
 
             return Ok(result);

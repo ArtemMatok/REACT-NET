@@ -1,9 +1,10 @@
-﻿using api.Models;
+﻿using api.DTOs.IngredientDTOs;
+using api.Models;
 
 namespace api.Repositories.IngredientsRepo
 {
     public interface IIngredientRepository
     {
-        Task<List<Ingredient>> GetAllIngredients();
+        Task<List<IngredientFilter>?> GetAllIngredients();
     }
 }

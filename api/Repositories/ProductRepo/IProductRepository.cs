@@ -1,9 +1,11 @@
-﻿using api.Models;
+﻿using api.DTOs.ProductDTOs;
+using api.Models;
 
 namespace api.Repositories.ProductRepo
 {
     public interface IProductRepository
     {
-        Task<List<Product>> GetProductsByName(string query);
+        Task<List<ProductSearchDto>?> GetProductsByName(string query);
+        
     }
 }

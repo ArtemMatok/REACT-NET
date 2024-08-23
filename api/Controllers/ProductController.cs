@@ -1,6 +1,7 @@
 ﻿using api.Repositories.ProductRepo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace api.Controllers
 {
@@ -18,6 +19,7 @@ namespace api.Controllers
         [HttpGet("GetProductsBySearch")]
         public async Task<IActionResult> GetProductsByName(string query)
         {
+           
             var result = await _productRepository.GetProductsByName(query);
             if(result == null || result.Count() == 0)
             {

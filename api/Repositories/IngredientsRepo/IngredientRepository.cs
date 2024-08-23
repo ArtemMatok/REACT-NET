@@ -1,4 +1,6 @@
 ﻿using api.Data;
+using api.DTOs.IngredientDTOs;
+using api.Mapper.IngredientMap;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +15,11 @@ namespace api.Repositories.IngredientsRepo
             _context = context;
         }
 
-        public async Task<List<Ingredient>> GetAllIngredients()
+        public async Task<List<IngredientFilter>?> GetAllIngredients()
         {
-            return await _context.Ingredients.ToListAsync();
+           var result = await _context.Ingredients.ToListAsync();
+
+           return result.ToIngredientFilter();
         }
     }
 }
