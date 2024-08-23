@@ -22,10 +22,14 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
 
   useDebounce(() => {
     const getProductsSearch = async () => {
-        await GetProductsBySearch(searchQuery!)
-          .then((items) => {
-            setProducts(items.data);
-          });
+      try {
+        const result = await GetProductsBySearch(searchQuery!);
+        setProducts(result.data);
+         
+      } catch (error) {
+        console.log(error);
+      }
+        
        
     }
     getProductsSearch();
