@@ -10,5 +10,5 @@ export type ProductGetWithIngredients={
     productId: number,
     name:string,
     image:string,
-    ingredients:any
+    ingredients:IngredientForProducts[]
 }
