@@ -15,7 +15,7 @@ namespace api.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        [HttpGet("GetAllCategoriesWithProductsWithIngredients")]
+        [HttpGet("GetCategoriesWithFullProductDetails")]
         public async Task<IActionResult> GetAllCategoriesWithProducts()
         {
             var result = await _categoryRepository.GetAllCategoriesWithProducts();

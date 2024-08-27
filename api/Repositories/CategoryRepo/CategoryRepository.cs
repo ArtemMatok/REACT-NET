@@ -18,10 +18,11 @@ namespace api.Repositories.CategoryRepo
 
         public async Task<List<CategoryDto>?> GetAllCategoriesWithProducts()
         {
-            var products = await _context.Products.Include(x=>x.Ingredients).ToListAsync();
+            var products = await _context.Products.ToListAsync();
             var ingredients = await _context.Ingredients.ToListAsync();
+            var productItems = await _context.ProductItems.Include(x=>x.Product).ToListAsync();
             var categories = await _context.Categories.Include(x=>x.Products).ToListAsync();  
-            return categories.ToCategoryDto(products, ingredients);  
+            return categories.ToCategoryDto(products, ingredients, productItems);  
         }
 
     }

@@ -6,7 +6,7 @@ namespace api.Mapper.CategoryMap
 {
     public static  class CategoryMapper
     {
-        public static List<CategoryDto> ToCategoryDto(this List<Category> categories, List<Product> products, List<Ingredient> ingredients)
+        public static List<CategoryDto> ToCategoryDto(this List<Category> categories, List<Product> products, List<Ingredient> ingredients, List<ProductItem> productsItem)
         {
             var categoriesDto = new List<CategoryDto>();
 
@@ -19,7 +19,7 @@ namespace api.Mapper.CategoryMap
                     Name = item.Name,
                     Products = products
                         .Where(x => x.CategoryId == item.CategoryId)
-                        .Select(p => new ProductWithIngredientsDto
+                        .Select(p => new ProductDto
                         {
                             ProductId = p.ProductId,
                             Name = p.Name,
@@ -32,7 +32,19 @@ namespace api.Mapper.CategoryMap
                                     Name = i.Name,
                                     Price = i.Price,
                                     Image = i.Image,
+                                }).ToList(),
+                            ProductItems = productsItem
+                                .Where(i => p.ProductItems.Select(pi => pi.ProductItemId).Contains(i.ProductItemId))
+                                .Select(x=> new DTOs.ProductItemsDTOs.ProductItemDto
+                                { 
+                                    ProductItemId = x.ProductItemId,
+                                    ProductId = x.ProductId,
+                                    Size = x.Size,
+                                    Price= x.Price,
+                                    PizzaType = x.PizzaType,   
                                 }).ToList()
+
+                           
                         }).ToList()
                 });
             }
