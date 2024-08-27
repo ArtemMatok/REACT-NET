@@ -1,20 +1,31 @@
 import {
-  Categories,
+
   Container,
   Filters,
-  ProductCard,
+
   ProductsGroupList,
-  SortPopup,
+
   Title,
   TopBar,
 } from "@/Components/index";
+import { GetCategoriesWithProductsWithIngredients } from "@/Services/Category";
 import { Item } from "@radix-ui/react-select";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 type Props = {};
 
 const HomePage = (props: Props) => {
+
+  useEffect(()=>{
+    const getCategoriesWithProductsWithIngrediets =async() => {
+      const result = await GetCategoriesWithProductsWithIngredients();
+      console.log(result);
+      return result;
+    }
+    getCategoriesWithProductsWithIngrediets();
+  },[])
+  
   return (
     <>
       <Container className="mt-5">
