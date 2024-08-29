@@ -28,5 +28,17 @@ namespace api.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("GetAllProducts")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var result = await _productRepository.GetAllProducts();
+            if(result is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
     }
 }

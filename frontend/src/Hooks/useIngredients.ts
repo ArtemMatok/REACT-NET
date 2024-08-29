@@ -25,6 +25,5 @@ export const useIngredients = () => {
   return {
     ingredients,
     loading,
-    
   };
 };

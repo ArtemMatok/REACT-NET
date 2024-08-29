@@ -3,12 +3,14 @@ import { ProductCard, Title } from "../index";
 import { cn } from "@/ui/ui";
 import{useIntersection} from "react-use"
 import { useCategoryStore } from "@/Store/Category";
+import { ProductItemGet } from "@/Models/ProductItem";
+import { ProductGetWithIngredientsWithItems } from "@/Models/Product";
 
 interface Props {
   className?: string;
   categoryId: number;
   title: string;
-  items: any[];
+  items: ProductGetWithIngredientsWithItems[];
   listClassName?: string;
 }
 
@@ -38,11 +40,11 @@ export const ProductsGroupList: React.FC<Props> = ({
       {
         items.map((product, i) =>(
           <ProductCard 
-            key={product.id}
-            id={product.id}
+            key={product.productId}
+            id={product.productId}
             name={product.name}
-            imageUrl={product.imageUrl}
-            price={product.items[0].price}
+            imageUrl={product.image}
+            price={product.productItems[0].price.toString()}
           />
 
         ))

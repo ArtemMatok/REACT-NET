@@ -15,7 +15,10 @@ namespace api.Repositories.ProductRepo
             _context = context;
         }
 
-     
+        public async Task<List<Product>?> GetAllProducts()
+        {
+            return await _context.Products.Include(x=>x.Ingredients).ToListAsync();
+        }
 
         public async Task<List<ProductSearchDto>?> GetProductsByName(string query)
         {

@@ -1,4 +1,5 @@
-﻿using api.Repositories.CategoryRepo;
+﻿using api.Models;
+using api.Repositories.CategoryRepo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,15 +16,15 @@ namespace api.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        [HttpGet("GetCategoriesWithFullProductDetails")]
-        public async Task<IActionResult> GetAllCategoriesWithProducts()
+        [HttpGet("GetAllCategoriesWuthFullProducts")]
+        public async Task<IActionResult> GetAllCategoriesWuthFullProducts()
         {
-            var result = await _categoryRepository.GetAllCategoriesWithProducts();
+            var result = await _categoryRepository.GetAllCategoriesWithFullProduct();
+
             if(result is null)
             {
-                return NotFound();
+                return Ok(new List<Category>());
             }
-
             return Ok(result);
         }
     }

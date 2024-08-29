@@ -10,6 +10,6 @@ namespace api.DTOs.ProductDTOs
      
         public string Image { get; set; }
         public List<IngredientDto> Ingredients { get; set; } = new List<IngredientDto>();
-        public List<ProductItemDto> ProductItems { get; set; } = new List<ProductItemDto>();
+         public List<ProductItemDto> ProductItems { get; set; } = new List<ProductItemDto>();
     }
 }

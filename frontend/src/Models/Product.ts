@@ -1,4 +1,5 @@
 import { IngredientForProducts } from "./Ingredient"
+import { ProductItemGet } from "./ProductItem"
 
 export type ProductGetSearch = {
     productId: number,
@@ -6,9 +7,11 @@ export type ProductGetSearch = {
     image:string,
 }
 
-export type ProductGetWithIngredients={
+export type ProductGetWithIngredientsWithItems={
     productId: number,
     name:string,
     image:string,
     ingredients:IngredientForProducts[]
+    productItems:ProductItemGet[],
 }
+

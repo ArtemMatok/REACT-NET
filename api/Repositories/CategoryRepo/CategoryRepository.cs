@@ -1,6 +1,4 @@
-using api.Data;
-using api.DTOs.CategoryDTOs;
-using api.Mapper.CategoryMap;
+﻿using api.Data;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,15 +13,14 @@ namespace api.Repositories.CategoryRepo
             _context = context;
         }
 
-
-        public async Task<List<CategoryDto>?> GetAllCategoriesWithProducts()
+        public async Task<List<Category>?> GetAllCategoriesWithFullProduct()
         {
-            var products = await _context.Products.ToListAsync();
-            var ingredients = await _context.Ingredients.ToListAsync();
-            var productItems = await _context.ProductItems.Include(x=>x.Product).ToListAsync();
-            var categories = await _context.Categories.Include(x=>x.Products).ToListAsync();  
-            return categories.ToCategoryDto(products, ingredients, productItems);  
+            return await _context.Categories
+            .Include(x => x.Products)
+                .ThenInclude(x => x.Ingredients) // Включаємо Ingredients
+            .Include(x => x.Products)
+                .ThenInclude(x => x.ProductItems) // Включаємо ProductItems
+            .ToListAsync();
         }
-
     }
 }

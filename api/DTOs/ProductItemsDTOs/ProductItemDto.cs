@@ -12,6 +12,6 @@ namespace api.DTOs.ProductItemsDTOs
         public int? PizzaType { get; set; }
         //Relation
         public int ProductId { get; set; }
-        public Product Product { get; set; }
+        
     }
 }

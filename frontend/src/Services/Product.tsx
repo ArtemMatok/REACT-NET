@@ -1,4 +1,4 @@
-import { ProductGetSearch } from "@/Models/Product";
+import { ProductGetAll, ProductGetSearch } from "@/Models/Product";
 import axios from "axios";
 
 const api = "http://localhost:5002/api/Product/"
@@ -10,3 +10,4 @@ export const GetProductsBySearch = async (query:string) => {
     return data;
   
 }
+

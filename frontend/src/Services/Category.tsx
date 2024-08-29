@@ -1,9 +1,10 @@
-import { CategoryGetWithProducts } from "@/Models/Category"
-import axios from "axios"
+import { CategoryGetWithProducts } from "@/Models/Category";
+import axios from "axios";
 
-const api = "http://localhost:5002/api/Category/"
+const api = "http://localhost:5002/api/Category/";
 
-export const GetCategoriesWithProductsWithIngredients = async() => {
-    const data = await axios.get<CategoryGetWithProducts[]>(api + "GetAllCategoriesWithProductsWithIngredients");
-    return data.data
+
+export const GetCategoryWithFullProduct = async()=> {
+    const data = await axios.get<CategoryGetWithProducts[]>(api + "GetAllCategoriesWuthFullProducts");
+    return data.data;
 }
