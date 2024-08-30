@@ -7,6 +7,6 @@ namespace api.Repositories.ProductRepo
     {
         Task<List<ProductSearchDto>?> GetProductsByName(string query);
         Task<List<Product>?> GetAllProducts();
-
+        Task<Product?> GetProductById(int productId);
     }
 }

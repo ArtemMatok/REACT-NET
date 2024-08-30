@@ -40,5 +40,14 @@ namespace api.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("GetProductById/{productId}")]
+        public async Task<IActionResult> GetProductById(int productId)
+        {
+            var product = await _productRepository.GetProductById(productId);
+            if (product is null) return NotFound();
+
+            return Ok(product); 
+        }
     }
 }

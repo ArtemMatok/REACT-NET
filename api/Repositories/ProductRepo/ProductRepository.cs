@@ -20,6 +20,15 @@ namespace api.Repositories.ProductRepo
             return await _context.Products.Include(x=>x.Ingredients).ToListAsync();
         }
 
+        public async Task<Product?> GetProductById(int productId)
+        {
+            return await _context.Products
+                .Where(x => x.ProductId == productId)
+                .Include(x => x.Ingredients)
+                .Include(x => x.ProductItems)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<List<ProductSearchDto>?> GetProductsByName(string query)
         {
             var products = await _context.Products

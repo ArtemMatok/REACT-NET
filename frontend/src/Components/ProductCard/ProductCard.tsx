@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Title } from "../index";
 import { Button } from "@/ui/components/ui";
 import { Plus } from "lucide-react";
+
 
 interface Props {
   className?: string;
@@ -10,6 +11,7 @@ interface Props {
   name: string;
   price: string;
   imageUrl: string;
+  onClick:() => void;
 }
 
 export const ProductCard: React.FC<Props> = ({
@@ -18,10 +20,12 @@ export const ProductCard: React.FC<Props> = ({
   name,
   price,
   imageUrl,
+  onClick
 }) => {
+  const[modal, setModal] = useState<boolean>(false)
   return (
-    <div className={className}>
-      <Link to={`/product/${id}`}>
+    <div className={className} onClick={onClick}>
+      {/* <Link to={`/product/${id}`}> */}
         <div className="flex justify-center p-6 bg-secondary rounded-lg h-[260px]">
           <img className="w-[215px] h-[215px]" src={imageUrl} alt="" />
         </div>
@@ -41,8 +45,9 @@ export const ProductCard: React.FC<Props> = ({
                 <Plus size={20} className="mr-1" /> 
                 Add               
             </Button>
+
         </div>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 };

@@ -12,6 +12,7 @@ interface Props {
   title: string;
   items: ProductGetWithIngredientsWithItems[];
   listClassName?: string;
+  onProductClick:(product:ProductGetWithIngredientsWithItems) => void;
 }
 
 export const ProductsGroupList: React.FC<Props> = ({
@@ -20,6 +21,7 @@ export const ProductsGroupList: React.FC<Props> = ({
   title,
   items,
   listClassName,
+  onProductClick
 }) => {
   const setActiveCategoryId = useCategoryStore((state) => state.setActiveId);
   const intersectionRef = useRef(null);
@@ -45,6 +47,7 @@ export const ProductsGroupList: React.FC<Props> = ({
             name={product.name}
             imageUrl={product.image}
             price={product.productItems[0].price.toString()}
+            onClick={()=>onProductClick(product)}
           />
 
         ))

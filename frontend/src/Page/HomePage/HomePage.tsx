@@ -1,3 +1,5 @@
+
+import { DialogDemo } from "@/Components/DialogProduct/DialogProduct";
 import {
   Categories,
   Container,
@@ -7,6 +9,7 @@ import {
   TopBar,
 } from "@/Components/index";
 import { CategoryGetWithProducts } from "@/Models/Category";
+import { ProductGetWithIngredientsWithItems } from "@/Models/Product";
 import { GetCategoryWithFullProduct } from "@/Services/Category";
 import { useEffect, useRef, useState } from "react";
 
@@ -14,8 +17,9 @@ type Props = {};
 
 const HomePage = (props: Props) => {
   const[categories, setCategories] = useState<CategoryGetWithProducts[]>([]);
-  // const categoriesFromLocal = localStorage.getItem("categories");
-  // const categories:CategoryGetWithProducts[] = JSON.parse(categoriesFromLocal!).data;
+  const[selectedProduct, setSelectedProduct] = useState<ProductGetWithIngredientsWithItems | null>(null);
+  const[isOpenModel, setIsOpenModel] = useState<boolean>(false);
+
   useEffect(()=>{
     const getCategories = async() => {
       const res = await GetCategoryWithFullProduct();
@@ -23,6 +27,14 @@ const HomePage = (props: Props) => {
     }
     getCategories();
   },[])  
+
+  const handleProductClick = (product:ProductGetWithIngredientsWithItems) =>{
+    setSelectedProduct(product);
+    setIsOpenModel(true);
+  }
+  const closeModal =() =>{
+    setIsOpenModel(false);
+  }
 
   return (
     <>
@@ -48,11 +60,13 @@ const HomePage = (props: Props) => {
               {
                 categories.map((category) => (
                   category.products.length > 0 && (
+                    
                     <ProductsGroupList 
                       key={category.categoryId}
                       title={category.name}
                       categoryId={category.categoryId}
                       items={category.products}
+                      onProductClick={handleProductClick}
                     />
                   )
                 ))
@@ -60,6 +74,15 @@ const HomePage = (props: Props) => {
             </div>
           </div>
         </div>
+
+        {selectedProduct && (
+          <DialogDemo 
+            product={selectedProduct} 
+            isOpen={isOpenModel}
+            onClose={closeModal}
+          />
+        )}
+       
       </Container>
     </>
   );

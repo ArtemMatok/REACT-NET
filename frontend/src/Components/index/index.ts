@@ -11,3 +11,5 @@ export {CheckboxFiltersGroup} from "../CheckboxFiltersGroup/CheckboxFiltersGroup
 export {ProductCard} from "../ProductCard/ProductCard"
 export {ProductsGroupList} from '../ProductsGroupList/ProductsGroupList'
 export {SearchInput} from "../SearchInput/SearchInput"
+export{ProductImage} from "../ProductImage/ProductImage"
+export {ChooseProductModal} from "../Modal/ChooseProductModal"

@@ -270,14 +270,14 @@ namespace api.Controllers
                     Name = "Cheese Pizza",
                     Image = "https://media.dodostatic.net/image/r:233x233/11EE7D610CF7E265B7C72BE5AE757CA7.webp",
                     CategoryId = 1,
-                    Ingredients = _context.Ingredients.Where(x=>x.IngredientId>1020).Take(5).ToList()
+                    Ingredients = _context.Ingredients.Where(x=>x.IngredientId>4).Take(5).ToList()
                 },
                     new Product()
                 {
                     Name = "Chorizo ​​fresh",
                     Image = "https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp",
                     CategoryId = 1,
-                    Ingredients = _context.Ingredients.Where(x=>x.IngredientId>1012).Take(7).ToList()
+                    Ingredients = _context.Ingredients.Where(x=>x.IngredientId>2).Take(7).ToList()
                 },
             };
 
