@@ -1,3 +1,5 @@
+import ProductImage from "../PizzaImage/PizzaImage"
+
 export {Header} from "../Header/Header"
 export{Container} from "../Container/Container"
 export{Title} from "../Title/Title"
@@ -11,5 +13,6 @@ export {CheckboxFiltersGroup} from "../CheckboxFiltersGroup/CheckboxFiltersGroup
 export {ProductCard} from "../ProductCard/ProductCard"
 export {ProductsGroupList} from '../ProductsGroupList/ProductsGroupList'
 export {SearchInput} from "../SearchInput/SearchInput"
-export{ProductImage} from "../ProductImage/ProductImage"
-export {ChooseProductModal} from "../Modal/ChooseProductModal"
+export{PizzaImage} from "../PizzaImage/PizzaImage"
+export{ChooseProductForm} from "../ChooseProductForm/ChooseProductForm"
+export {ChoosePizzaForm} from "../ChoosePizzaForm/ChoosePizzaForm"
