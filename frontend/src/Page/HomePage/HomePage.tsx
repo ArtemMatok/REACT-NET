@@ -1,5 +1,5 @@
 
-import { DialogDemo } from "@/Components/DialogProduct/DialogProduct";
+import { DialogDemo } from "@/Shared/Components/DialogProduct/DialogProduct";
 import {
   Categories,
   Container,
@@ -7,10 +7,10 @@ import {
   ProductsGroupList,
   Title,
   TopBar,
-} from "@/Components/index";
-import { CategoryGetWithProducts } from "@/Models/Category";
-import { ProductGetWithIngredientsWithItems } from "@/Models/Product";
-import { GetCategoryWithFullProduct } from "@/Services/Category";
+} from "@/Shared/Components/index/index";
+import { CategoryGetWithProducts } from "@/Shared/Models/Category";
+import { ProductGetWithIngredientsWithItems } from "@/Shared/Models/Product";
+import { GetCategoryWithFullProduct } from "@/Shared/Services/Category";
 import { useEffect, useRef, useState } from "react";
 
 type Props = {};

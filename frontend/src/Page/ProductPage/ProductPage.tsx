@@ -1,7 +1,7 @@
-import GroupVariants from "@/Components/GroupVariants/GroupVariants";
-import { Container, ProductImage, Title } from "@/Components/index";
-import { ProductGetWithIngredientsWithItems } from "@/Models/Product";
-import { GetProductById } from "@/Services/Product";
+import GroupVariants from "@/Shared/Components/GroupVariants/GroupVariants";
+import { Container, PizzaImage, Title } from "@/Shared/Components/index/index";
+import { ProductGetWithIngredientsWithItems } from "@/Shared/Models/Product";
+import { GetProductById } from "@/Shared/Services/Product";
 
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router";
@@ -35,7 +35,7 @@ export const ProductPage: React.FC<Props> = ({ className }) => {
   return (
     <Container className="flex flex-col my-10">
       <div className="flex flex-1">
-        <ProductImage imageUrl={product?.image} size={50} />
+        <PizzaImage imageUrl={product?.image} size={50} />
 
         <div className="w-[490px] bg-[#f7f6f5] p-7">
           <Title text={product ? product.name : ""} size="md" className="font-extrabold mb-1" />
@@ -44,7 +44,7 @@ export const ProductPage: React.FC<Props> = ({ className }) => {
 
 
           <GroupVariants 
-            selectedValue="2"
+            value="2"
             items={[
               {
                 name:'Small',
