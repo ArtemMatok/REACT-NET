@@ -4,7 +4,7 @@ const mapPizzaSize = {
     50:"Big"
 } as const;
 
-const mapPizzaType = {
+export const mapPizzaType = {
     1:"Traditional",
     2:"Thin"
 } as const;
