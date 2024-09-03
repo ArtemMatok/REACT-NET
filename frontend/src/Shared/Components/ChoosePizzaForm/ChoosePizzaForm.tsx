@@ -1,7 +1,7 @@
 import { IngredientForProducts } from "@/Shared/Models/Ingredient";
 import { ProductItemGet } from "@/Shared/Models/ProductItem";
 import { cn } from "@/ui/ui";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IngredientItem, PizzaImage, Title } from "../index/index";
 import { Button } from "@/ui/components/ui";
 import { GroupVariants } from "../GroupVariants/GroupVariants";
@@ -13,6 +13,8 @@ import {
   pizzaTypes,
 } from "@/Shared/Constants/pizza";
 import { useSet } from "react-use";
+import { calcTotalPizzaPrice, getAvailablePizzaSizes, getPizzaDetails } from "@/lib/index";
+import { usePizzaOptions } from "@/Shared/Hooks";
 
 interface Props {
   className?: string;
@@ -31,43 +33,29 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   items,
   onClickAddCart,
 }) => {
-  const [size, setSize] = useState<PizzaSize>(30);
-  const [type, setType] = useState<PizzaType>(1);
-  const [selectedIngredients, { toggle: addIngredient }] = useSet(
-    new Set<number>([])
+ 
+  const {size, type, selectedIngredients,availableSizes,setSize, setType, addIngredient} = usePizzaOptions(items);
+
+  
+
+  const totalPrice = calcTotalPizzaPrice(
+    type,
+    size,
+    items,
+    ingredients,
+    selectedIngredients
   );
+  const textDetails = getPizzaDetails(size, type);  
 
-  const textDetails = `${size}sm, ${mapPizzaType[type]} pizza`;
-
-  //TODO: you need to move to the first variant if pizzaType doesn`t found
-  const pizzaPrice = items.find(
-    (item) => item.pizzaType === type && item.size === size 
-  )?.price || 0;
-  const totalIngredientsPrice = ingredients
-    .filter((ingredient) => selectedIngredients.has(ingredient.ingredientId))
-    .reduce((acc, ingredient) => acc + ingredient.price, 0);
-  const totalPrice = pizzaPrice + totalIngredientsPrice;
 
   const handleClickAdd = () => {
     onClickAddCart?.();
     console.log({
       size,
       type,
-      ingredients:selectedIngredients,
-
-    })
-
-  }
-
-  const availablePizza = items.filter((item)=>item.pizzaType === type);
-  const availablePizzaSizes = pizzaSizes.map((item) => (
-    {
-      name:item.name,
-      value: item.value,
-      disabled: !availablePizza.some((pizza) => Number(pizza.size) === Number(item.value))
-    }
-  ))
-
+      ingredients: selectedIngredients,
+    });
+  };
 
   return (
     <div className={cn(className, "flex flex-1")}>
@@ -79,7 +67,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
         <div className="flex flex-col gap-5 my-5">
           <GroupVariants
-            items={availablePizzaSizes}
+            items={availableSizes}
             value={String(size)}
             onClick={(value) => setSize(Number(value) as PizzaSize)}
           />
@@ -106,7 +94,10 @@ export const ChoosePizzaForm: React.FC<Props> = ({
           </div>
         </div>
 
-        <Button onClick={handleClickAdd} className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10">
+        <Button
+          onClick={handleClickAdd}
+          className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
+        >
           Add ${totalPrice}
         </Button>
       </div>

@@ -1,7 +1,7 @@
 import { cn } from "@/ui/ui";
 import React from "react";
 
-type Variant = {
+export type Variant = {
   name: string;
   value: string;
   disabled?: boolean;
