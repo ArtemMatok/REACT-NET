@@ -392,7 +392,7 @@ namespace api.Controllers
         {
             var cart = new Cart()
             {
-                AppUserId = "ccc9e485-4f49-4287-889d-c32c509599ab",
+                AppUserId = "9bd41edf-55cc-4476-8b71-ed8d3e174cbb",
                 TotalAmount = 0,
                 Token="1111"
             };
@@ -409,14 +409,14 @@ namespace api.Controllers
             { 
                 new CartItem()
                 {
-                    ProductItemId = 2,
-                    CartId = 1,
+                    ProductItemId = 1002,
+                    CartId = 2002,
                     Quantity = 2,
                     Ingredients = _context.Ingredients.Take(3).ToList(),
                 }
             };
             _context.CartItems.AddRange(cartItems);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return Ok("Created CartItem");
 
         }

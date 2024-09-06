@@ -9,6 +9,7 @@
         public string? AppUserId { get; set; }
         public AppUser? AppUser { get; set; }
         public List<CartItem> CartItems { get; set; } = new List<CartItem>();
-        public List<Order> Orders { get; set; }
+        //TODO: May be it should be ONE TO ONE,
+        public List<Order> Orders { get; set; } = new List<Order>();
     }
 }
