@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import {
   Sheet,
   SheetContent,
@@ -13,6 +13,8 @@ import { Button } from "@/ui/components/ui";
 import { ArrowRight } from "lucide-react";
 import { CardDrawerItem } from "../index";
 import { getCartItemDetails } from "@/lib";
+import { useCartState } from "@/Shared/Store/Cart";
+import { PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
 
 interface Props {
   className?: string;
@@ -22,6 +24,16 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
   children,
   className,
 }) => {
+  const [totalAmount, getCartItems, cartItems] = useCartState((state) => [
+    state.totalAmount,
+    state.getCartItems,
+    state.cartItems,
+  ]);
+
+  useEffect(() => {
+    getCartItems(undefined, "1111");
+  }, []);
+
   return (
     <Sheet>
       <SheetTrigger>{children}</SheetTrigger>
@@ -34,16 +46,18 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
 
         <div className="mx-6 mt-5 overflow-auto scrollbar flex-1">
           <div className="mb-2">
-            <CardDrawerItem
-              id={1}
-              details={getCartItemDetails(1, 30, [])}
-              imageUrl={
-                "https://media.dodostatic.net/image/r:233x233/11EE7D61304FAF5A98A6958F2BB2D260.webp"
-              }
-              name={"Pizza"}
-              price={12}
-              quantity={1}
-            />
+            {cartItems.map((item) => (
+              <CardDrawerItem
+                id={item.cartItemId}
+                details={item.size && item.pizzaType  ? getCartItemDetails(item.pizzaType as PizzaType, item.size as PizzaSize, item.ingredients) : ""}
+                imageUrl={
+                  item.imageUrl
+                }
+                name={item.name}
+                price={item.price}
+                quantity={item.quantity}
+              />
+            ))}
           </div>
         </div>
 
@@ -55,7 +69,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
                 <div className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2"></div>
               </span>
 
-              <span className="font-bold text-lg">$20 </span>
+              <span className="font-bold text-lg">${totalAmount}</span>
             </div>
             <Link to="/chart">
               <Button type="submit" className="w-full h-12 text-base">

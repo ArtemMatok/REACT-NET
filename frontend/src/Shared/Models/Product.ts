@@ -7,6 +7,12 @@ export type ProductGetSearch = {
     image:string,
 }
 
+export type ProductShortGet = {
+    productId: number,
+    name:string,
+    image:string,
+}
+
 export type ProductGetWithIngredientsWithItems={
     productId: number,
     name:string,

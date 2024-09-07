@@ -1,10 +1,11 @@
 import { mapPizzaType, PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
 import { IngredientForProducts } from "@/Shared/Models/Ingredient";
+import { CartStateItem } from "./getCartDetails";
 
 export const getCartItemDetails = (
   pizzaType: PizzaType,
   pizzaSize: PizzaSize,
-  ingredients: IngredientForProducts[]
+  ingredients: CartStateItem["ingredients"]
 ):string => {
   const details = [];
   if (pizzaSize && pizzaType) {

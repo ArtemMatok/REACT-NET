@@ -9,6 +9,6 @@ namespace api.DTOs.CartItemDTOs
         public int Quantity { get; set; }
         public int ProductItemId { get; set; }
         public ProductItemWithProductDto ProductItem { get; set; }
-        public List<IngredientDto>? Ingridents { get; set; } = new List<IngredientDto>();
+        public List<IngredientDto>? Ingredients { get; set; } = new List<IngredientDto>();
     }
 }

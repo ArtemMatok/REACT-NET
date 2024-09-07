@@ -14,10 +14,4 @@ namespace api.DTOs.CartDTOs
         public List<CartItemDto> CartItems { get; set; } = new List<CartItemDto>();
     }
 
-
-    
-
-    
-
-    
 }

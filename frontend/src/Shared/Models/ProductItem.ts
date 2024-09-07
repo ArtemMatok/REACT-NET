@@ -1,4 +1,4 @@
-import { ProductGetWithIngredientsWithItems } from "./Product"
+import { ProductGetWithIngredientsWithItems, ProductShortGet } from "./Product"
 
 export type ProductItemGet = {
    
@@ -7,5 +7,5 @@ export type ProductItemGet = {
     size?:number,
     pizzaType?:number,
     prodictId:number,
-    product:ProductGetWithIngredientsWithItems
+    product:ProductShortGet
 }

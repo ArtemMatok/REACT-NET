@@ -19,7 +19,7 @@ namespace api.Mapper.CartItemMap
                     Quantity = item.Quantity,
                     ProductItemId = item.ProductItemId,
                     ProductItem = item.ProductItem.ToProductItemWithProductDto(),
-                    Ingridents = item.Ingredients?.ToIngreditentDto()
+                    Ingredients = item.Ingredients?.ToIngreditentDto()
                 });
 
             }
