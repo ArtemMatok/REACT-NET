@@ -19,5 +19,22 @@ namespace api.Mapper.IngredientMap
             }
             return ingredientsFilter;
         }
+
+        public static List<IngredientDto> ToIngreditentDto(this List<Ingredient> ingredients)
+        {
+            var resultIngredients = new List<IngredientDto>();
+            foreach (var item in ingredients)
+            {
+                resultIngredients.Add(new IngredientDto()
+                {
+                    IngredientId = item.IngredientId,
+                    Name = item.Name,
+                    Price = item.Price,
+                    Image = item.Image
+                });
+            }
+
+            return resultIngredients;
+        }
     }
 }

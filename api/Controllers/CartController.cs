@@ -1,4 +1,5 @@
-﻿using api.Models;
+﻿using api.Mapper.CartMap;
+using api.Models;
 using api.Repositories.CartRepo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ namespace api.Controllers
                 return NotFound();
             }
 
-            return Ok(cart);    
+            return Ok(cart.ToCartDto());    
         }
     }
 }

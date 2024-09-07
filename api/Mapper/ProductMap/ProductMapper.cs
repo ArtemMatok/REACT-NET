@@ -20,5 +20,15 @@ namespace api.Mapper.ProductMap
             }
             return result;
         }
+
+        public static ProductShortDto ToProductShortDto(this Product product)
+        {
+            return new ProductShortDto()
+            {
+                ProductId = product.ProductId,
+                Name = product.Name,
+                Image = product.Image
+            };
+        }
     }
 }

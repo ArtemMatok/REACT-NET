@@ -15,15 +15,16 @@ namespace api.Repositories.CartRepo
 
         public async Task<Cart> GetCartByUserIdOrByToken(string? userId, string? token)
         {
-            if(userId == null)
+            if (userId == null)
             {
                 var userCart = await _context.Carts.Where(x => x.Token == token)
                     .Include(x => x.CartItems)
-                    .ThenInclude(c=>c.ProductItem)
-                    .ThenInclude(p=>p.Product)
-                    .ThenInclude(i=>i.Ingredients)
+                        .ThenInclude(c => c.ProductItem)
+                            .ThenInclude(p => p.Product)
+                    .Include(x => x.CartItems)
+                        .ThenInclude(c => c.Ingredients) 
                     .FirstOrDefaultAsync();
-                if(userCart != null)
+                if (userCart != null)
                 {
                     userCart.CartItems = userCart.CartItems.OrderByDescending(y => y.CartItemId).ToList();
                 }
@@ -32,11 +33,12 @@ namespace api.Repositories.CartRepo
             }
             else
             {
-                var userCart = await _context.Carts.Where(x=>x.AppUserId == userId)
+                var userCart = await _context.Carts.Where(x => x.AppUserId == userId)
+                     .Include(x => x.CartItems)
+                        .ThenInclude(c => c.ProductItem)
+                            .ThenInclude(p => p.Product)
                     .Include(x => x.CartItems)
-                    .ThenInclude(c => c.ProductItem)
-                    .ThenInclude(p => p.Product)
-                    .ThenInclude(i => i.Ingredients)
+                        .ThenInclude(c => c.Ingredients) 
                     .FirstOrDefaultAsync();
 
                 if (userCart != null)
