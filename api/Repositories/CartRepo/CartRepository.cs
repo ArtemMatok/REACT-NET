@@ -13,6 +13,8 @@ namespace api.Repositories.CartRepo
             _context = context;
         }
 
+        
+
         public async Task<Cart> GetCartByUserIdOrByToken(string? userId, string? token)
         {
             if (userId == null)
@@ -49,5 +51,35 @@ namespace api.Repositories.CartRepo
                 return userCart;
             }
         }
+
+        public async Task<Cart?> UpdateCartTotalAmount(string token)
+        {
+            var userCart = await _context.Carts.Where(x => x.Token == token)
+                .Include(x => x.CartItems)
+                    .ThenInclude(c => c.ProductItem)
+                        .ThenInclude(p => p.Product)
+                .Include(x => x.CartItems)
+                    .ThenInclude(c => c.Ingredients)
+                .FirstOrDefaultAsync();
+            if (userCart == null)
+            {
+                return null;
+            }
+
+            var totalAmount = userCart.CartItems.Sum(cartItem =>
+            {
+                double ingredientsPrice = cartItem.Ingredients?.Sum(x => x.Price) ?? 0;
+
+                return (ingredientsPrice + cartItem.ProductItem.Price) * cartItem.Quantity;
+            });
+
+            userCart.TotalAmount = totalAmount;
+            _context.Carts.Update(userCart);
+
+            await _context.SaveChangesAsync();
+
+            return userCart;
+
+        }       
     }
 }

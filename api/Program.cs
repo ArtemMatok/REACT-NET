@@ -1,6 +1,7 @@
 using api.Data;
 using api.Models;
 using api.Repositories.AuthToken;
+using api.Repositories.CartItemRepo;
 using api.Repositories.CartRepo;
 using api.Repositories.CategoryRepo;
 using api.Repositories.IngredientsRepo;
@@ -29,6 +30,7 @@ builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
 
 builder.Services.AddSwaggerGen(option =>
 {

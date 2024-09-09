@@ -16,6 +16,7 @@ import { getCartItemDetails } from "@/lib";
 import { useCartState } from "@/Shared/Store/Cart";
 import { PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
 
+
 interface Props {
   className?: string;
 }
@@ -24,15 +25,25 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
   children,
   className,
 }) => {
-  const [totalAmount, getCartItems, cartItems] = useCartState((state) => [
+  const token = "1111";
+
+  const [totalAmount, getCartItems, cartItems, UpdateCartByItemQuantity, removeCartItem] = useCartState((state) => [
     state.totalAmount,
     state.getCartItems,
     state.cartItems,
+    state.updateItemQuantity,
+    state.removeCartItem
   ]);
 
   useEffect(() => {
-    getCartItems(undefined, "1111");
+    getCartItems(undefined, token);
+
   }, []);
+
+  const onClickCountButton = (cartItemId:number, quantity:number, type:"plus"|"minus") => {
+    const newQuantity = type === "plus" ? quantity+1 : quantity-1;
+    UpdateCartByItemQuantity(token, cartItemId, newQuantity);
+  }
 
   return (
     <Sheet>
@@ -40,7 +51,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
       <SheetContent className="flex flex-col justify-between pb-0 bg-[#F4F1EE]">
         <SheetHeader>
           <SheetTitle>
-            In basket: <span className="font-bold">3 items</span>
+            In basket: <span className="font-bold">{cartItems.length}</span>
           </SheetTitle>
         </SheetHeader>
 
@@ -56,6 +67,8 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
                 name={item.name}
                 price={item.price}
                 quantity={item.quantity}
+                onClickCountButton={(type) => onClickCountButton(item.cartItemId, item.quantity, type)}
+                onClickRemove={() => removeCartItem(token,item.cartItemId )}
               />
             ))}
           </div>
