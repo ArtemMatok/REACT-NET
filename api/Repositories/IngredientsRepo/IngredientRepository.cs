@@ -21,5 +21,12 @@ namespace api.Repositories.IngredientsRepo
 
            return result.ToIngredientFilter();
         }
+
+        public async Task<List<Ingredient>> GetIngredientsBySelectedId(List<int> IngredientsId)
+        {
+            return await _context.Ingredients
+                .Where(x => IngredientsId.Contains(x.IngredientId))
+                .ToListAsync();
+        }
     }
 }

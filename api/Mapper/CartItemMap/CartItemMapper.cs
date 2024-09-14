@@ -25,5 +25,18 @@ namespace api.Mapper.CartItemMap
             }
             return resCartItems;    
         }
+
+        public static CartItem ToCartItem(this CartItemDto cartItem)
+        {
+            return new CartItem()
+            {
+                CartItemId = cartItem.CartItemId,
+                Quantity = cartItem.Quantity,
+                ProductItemId = cartItem.ProductItemId,
+                CartId = cartItem.CartItemId,
+                Ingredients = cartItem.Ingredients.ToIngreditent()
+            };
+
+        }
     }
 }

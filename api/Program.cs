@@ -5,6 +5,7 @@ using api.Repositories.CartItemRepo;
 using api.Repositories.CartRepo;
 using api.Repositories.CategoryRepo;
 using api.Repositories.IngredientsRepo;
+using api.Repositories.ProductItemRepo;
 using api.Repositories.ProductRepo;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -31,6 +32,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
+builder.Services.AddScoped<IProductItemRepository, ProductItemRepository>();
 
 builder.Services.AddSwaggerGen(option =>
 {

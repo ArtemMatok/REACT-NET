@@ -2,6 +2,9 @@ import { ProductGetWithIngredientsWithItems } from "@/Shared/Models/Product";
 import { Dialog, DialogContent } from "@/ui/components/ui/dialog";
 import { cn } from "@/ui/ui";
 import { ChoosePizzaForm, ChooseProductForm } from "../index/index";
+import { UpdateCartByAdding } from "@/Shared/Services/Cart";
+import { CartItemGet } from "@/Shared/Models/CartItem";
+import { ProductItemGet } from "@/Shared/Models/ProductItem";
 
 type Props = {
   product: ProductGetWithIngredientsWithItems;
@@ -13,6 +16,7 @@ type Props = {
 export function DialogDemo({ isOpen, product, onClose, className }: Props) {
   const isPizzaForm = Boolean(product.productItems[0].pizzaType);
 
+ 
   
   return (
     
@@ -29,6 +33,8 @@ export function DialogDemo({ isOpen, product, onClose, className }: Props) {
             name={product.name}
             ingredients={product.ingredients}
             items={product.productItems}
+            onClickAddCart={()=>console.log(product)}
+            product={product}
           />
         ) : (
           <ChooseProductForm

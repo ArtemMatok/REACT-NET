@@ -36,5 +36,24 @@ namespace api.Mapper.IngredientMap
 
             return resultIngredients;
         }
+
+        public static List<Ingredient> ToIngreditent(this List<IngredientDto> ingredients)
+        {
+            var resultIngredients = new List<Ingredient>();
+
+            foreach (var item in ingredients)
+            {
+                resultIngredients.Add(new Ingredient()
+                {
+                    IngredientId = item.IngredientId,
+                    Name = item.Name,
+                    Price = item.Price,
+                    Image = item.Image
+                });
+            }
+
+            return resultIngredients;
+        }
+
     }
 }

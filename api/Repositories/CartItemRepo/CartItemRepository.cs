@@ -1,4 +1,6 @@
 ﻿using api.Data;
+using api.DTOs.ProductDTOs;
+using api.DTOs.ProductItemsDTOs;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +39,27 @@ namespace api.Repositories.CartItemRepo
 
         }
 
+        public async Task<CartItem?> GetCartItemByProduct(int cartId, ProductItemWithIngredientsDto productItemWithIngredients)
+        {
+            var cartItems = await _context.CartItems
+                .Where(x => x.CartId == cartId &&
+                    x.ProductItem.ProductId == productItemWithIngredients.ProductItem.ProductId)
+               .ToListAsync();
+
+           
+            var cartItem = cartItems
+                    .FirstOrDefault(x => x.Ingredients != null &&
+                        x.Ingredients.Count == productItemWithIngredients.IngredientsId.Count &&
+                        x.Ingredients.All(i => productItemWithIngredients.IngredientsId
+                            .Any(p => p == i.IngredientId)));
+
+            if (cartItem is null)
+            {
+                return null;
+            }
+            return cartItem;
+        }
+
         public bool IsExsistCartItem(int cartItemId)
         {
             return _context.CartItems.Any(x => x.CartItemId == cartItemId);
@@ -49,5 +72,15 @@ namespace api.Repositories.CartItemRepo
             await _context.SaveChangesAsync();
             return cartItem;
         }
+
+        public async Task<CartItem> UpdateCartItemByQuantityPlusOne(CartItem cartItem)
+        {
+            cartItem.Quantity = cartItem.Quantity + 1;
+            _context.CartItems.Update(cartItem);
+            await _context.SaveChangesAsync();
+            return cartItem;
+        }
+
+       
     }
 }

@@ -1,10 +1,8 @@
 import { create } from "zustand";
-import { PizzaSize, PizzaType } from "../Constants/pizza";
-import { error } from "console";
+
 import { GetCartByUserIdOrToken, UpdateCartByDeletingCartItem, UpdateCartByItemQuantity } from "../Services/Cart";
 import { getCartDetails } from "@/lib";
 import { CartStateItem } from "@/lib/getCartDetails";
-import { CartGet } from "../Models/Cart";
 
 
 
@@ -14,7 +12,7 @@ export interface CartState{
     totalAmount:number;
     cartItems:CartStateItem[];
      //CartItems from cart
-    getCartItems:(userId?:string, token?:string) => Promise<void>;
+    getCartItems:(userId?:string| undefined, token?:string | undefined) => Promise<void>;
 
     //Update item quantity
     updateItemQuantity:(token:string,cartItemId:number, quantity:number) =>Promise<void>;
@@ -32,13 +30,15 @@ export const useCartState = create<CartState>((set,get) => ({
     loading:true,
     totalAmount:0,
 
-    getCartItems:async(userId?:string, token?:string) => {
+    getCartItems:async(userId?:string | undefined, cartToken?:string | undefined) => {
         try {
             set({loading:true, error:false});
-            const data = await GetCartByUserIdOrToken(userId, token);
+            const data = await GetCartByUserIdOrToken(userId, cartToken);
             
-            //set data
-            set(getCartDetails(data));
+            if(data){
+                set(getCartDetails(data));
+            }
+           
         } catch (error) {
             console.log(error);
             set({error:true});

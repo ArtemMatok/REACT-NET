@@ -25,7 +25,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
   children,
   className,
 }) => {
-  const token = "1111";
+  const token = localStorage.getItem("cartToken");;
 
   const [totalAmount, getCartItems, cartItems, UpdateCartByItemQuantity, removeCartItem] = useCartState((state) => [
     state.totalAmount,
@@ -36,13 +36,19 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
   ]);
 
   useEffect(() => {
-    getCartItems(undefined, token);
+    if(token){
+      getCartItems(undefined, token);
+    }
+   
 
   }, []);
 
   const onClickCountButton = (cartItemId:number, quantity:number, type:"plus"|"minus") => {
     const newQuantity = type === "plus" ? quantity+1 : quantity-1;
-    UpdateCartByItemQuantity(token, cartItemId, newQuantity);
+    if(token){
+      UpdateCartByItemQuantity(token, cartItemId, newQuantity);
+    }
+    
   }
 
   return (
@@ -68,7 +74,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
                 price={item.price}
                 quantity={item.quantity}
                 onClickCountButton={(type) => onClickCountButton(item.cartItemId, item.quantity, type)}
-                onClickRemove={() => removeCartItem(token,item.cartItemId )}
+                onClickRemove={() => removeCartItem(token!,item.cartItemId )}
               />
             ))}
           </div>

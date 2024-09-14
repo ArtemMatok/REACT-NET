@@ -1,5 +1,5 @@
 import { IngredientForProducts } from "@/Shared/Models/Ingredient";
-import { ProductItemGet } from "@/Shared/Models/ProductItem";
+import { ProductItemGet, ProductItemWithIngredients } from "@/Shared/Models/ProductItem";
 import { cn } from "@/ui/ui";
 import React, { useEffect, useState } from "react";
 import { IngredientItem, PizzaImage, Title } from "../index/index";
@@ -15,6 +15,9 @@ import {
 import { useSet } from "react-use";
 import { calcTotalPizzaPrice, getAvailablePizzaSizes, getPizzaDetails } from "@/lib/index";
 import { usePizzaOptions } from "@/Shared/Hooks";
+import { ProductShortGet } from "@/Shared/Models/Product";
+import { GetProductItemByParameters } from "@/Shared/Services/ProductItem";
+import { UpdateCartByAdding } from "@/Shared/Services/Cart";
 
 interface Props {
   className?: string;
@@ -22,6 +25,7 @@ interface Props {
   name: string;
   ingredients: IngredientForProducts[];
   items: ProductItemGet[];
+  product:ProductShortGet;
   onClickAddCart?: VoidFunction;
 }
 
@@ -31,30 +35,52 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   imageUrl,
   ingredients,
   items,
+  product,
   onClickAddCart,
 }) => {
  
-  const {size, type, selectedIngredients,availableSizes,setSize, setType, addIngredient} = usePizzaOptions(items);
+  const {size, pizzaType, selectedIngredients,availableSizes,setSize, setPizzaType, addIngredient, productItems} = usePizzaOptions(items);
 
   
 
   const totalPrice = calcTotalPizzaPrice(
-    type,
+    pizzaType,
     size,
     items,
     ingredients,
     selectedIngredients
   );
-  const textDetails = getPizzaDetails(size, type);  
+  const textDetails = getPizzaDetails(size, pizzaType);  
 
 
-  const handleClickAdd = () => {
+  const handleClickAdd =async () => {
     onClickAddCart?.();
-    console.log({
-      size,
-      type,
-      ingredients: selectedIngredients,
-    });
+    // const getProductItem = async () => {
+    //   try {
+    //     const productItem = await GetProductItemByParameters(product.productId, size, pizzaType);
+    //     return productItem;
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+
+    // const productItem = await getProductItem();
+
+    // if(productItem){
+    //   const productItemWithIngredients:ProductItemWithIngredients = {
+    //     productItem:productItem,
+    //     ingredientsId: Array.from(selectedIngredients),
+    //   }
+
+    //   try {
+    //     const cart = await UpdateCartByAdding(productItemWithIngredients);
+    //     console.log(cart);
+    //   } catch (error) {
+    //    console.log(error); 
+    //   }
+      
+    // }
+    
   };
 
   return (
@@ -74,8 +100,8 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
           <GroupVariants
             items={pizzaTypes}
-            value={String(type)}
-            onClick={(value) => setType(Number(value) as PizzaType)}
+            value={String(pizzaType)}
+            onClick={(value) => setPizzaType(Number(value) as PizzaType)}
           />
         </div>
 

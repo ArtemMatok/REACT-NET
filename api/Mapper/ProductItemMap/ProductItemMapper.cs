@@ -19,5 +19,19 @@ namespace api.Mapper.ProductItemMap
             };
 
         }
+
+        public static ProductItem ToProduct(this ProductItemWithProductDto product)
+        {
+            return new ProductItem()
+            {
+                ProductItemId = product.ProductItemId,
+                Price = product.Price,
+                Size = product.Size,
+                PizzaType = product.PizzaType,
+                ProductId = product.ProductId,
+
+            };
+
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace api.Repositories.IngredientsRepo
     public interface IIngredientRepository
     {
         Task<List<IngredientFilter>?> GetAllIngredients();
+        Task<List<Ingredient>> GetIngredientsBySelectedId(List<int> IngredientsId);
     }
 }

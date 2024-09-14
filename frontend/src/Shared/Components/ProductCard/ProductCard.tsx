@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Title } from "../index/index";
 import { Button } from "@/ui/components/ui";
 import { Plus } from "lucide-react";
+import { ProductGetWithIngredientsWithItems } from "@/Shared/Models/Product";
 
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   price: string;
   imageUrl: string;
   onClick:() => void;
+
 }
 
 export const ProductCard: React.FC<Props> = ({
@@ -20,7 +22,8 @@ export const ProductCard: React.FC<Props> = ({
   name,
   price,
   imageUrl,
-  onClick
+  onClick,
+  
 }) => {
   const[modal, setModal] = useState<boolean>(false)
   return (
