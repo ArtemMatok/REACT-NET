@@ -2,7 +2,8 @@ import axios from "axios";
 import { CartGet } from "../Models/Cart";
 import { getCartOrCreateByToken } from "@/lib";
 import { ProductGetWithIngredientsWithItems } from "../Models/Product";
-import { ProductItemWithIngredients } from "../Models/ProductItem";
+import { CreateCartItem } from "../Models/ProductItem";
+import Cookies from "js-cookie";
 
 const api = "http://localhost:5002/api/Cart/";
 
@@ -58,13 +59,13 @@ export const CreateCartWithToken = async() => {
   return data.data;
 }
 
-export const UpdateCartByAdding = async(productItemWithIngredients:ProductItemWithIngredients) => {
-  let cartToken = localStorage.getItem("cartToken");
+export const UpdateCartByAdding = async(productItemWithIngredients:CreateCartItem) => {
+  let cartToken = Cookies.get("cartToken");
 
   const userCart = await getCartOrCreateByToken(cartToken);
 
   if(!cartToken){
-    cartToken = localStorage.getItem("cartToken");
+    cartToken = Cookies.get("cartToken");
   }
  
     const data = await axios.put<CartGet>(api+`UpdateCartByAdding/${userCart.cartId}`, productItemWithIngredients);

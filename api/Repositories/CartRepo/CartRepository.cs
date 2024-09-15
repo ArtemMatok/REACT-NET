@@ -122,6 +122,7 @@ namespace api.Repositories.CartRepo
                 return null;
             }
 
+
             var totalAmount = userCart.CartItems.Sum(cartItem =>
             {
                 double ingredientsPrice = cartItem.Ingredients?.Sum(x => x.Price) ?? 0;

@@ -4,6 +4,7 @@ import { PizzaSize, PizzaType } from "../Constants/pizza";
 import { useSet } from "react-use";
 import { getAvailablePizzaSizes } from "@/lib";
 import { ProductItemGet } from "../Models/ProductItem";
+import { GetProductItemByParameters } from "../Services/ProductItem";
 
 interface ReturnProps {
   size: PizzaSize;
@@ -13,7 +14,7 @@ interface ReturnProps {
   selectedIngredients:Set<number>;
   addIngredient: (id:number) => void;
   availableSizes:Variant[];
-  productItems:ProductItemGet[]
+  currentProuctItemId?:number;
 }
 
 export const usePizzaOptions = (items: ProductItemGet[]): ReturnProps => {
@@ -22,7 +23,10 @@ export const usePizzaOptions = (items: ProductItemGet[]): ReturnProps => {
   const [selectedIngredients, { toggle: addIngredient }] = useSet(
     new Set<number>([])
   );
+
   const availableSizes = getAvailablePizzaSizes(pizzaType,items);
+  const currentProuctItemId = items.find(x=>x.pizzaType === pizzaType && x.size === size)?.productItemId;
+
 
   useEffect(() => {
     const isAvailableSize = availableSizes?.find(
@@ -33,6 +37,7 @@ export const usePizzaOptions = (items: ProductItemGet[]): ReturnProps => {
     if (!isAvailableSize && availableSize) {
       setSize(Number(availableSize.value) as PizzaSize);
     }
+
   }, [pizzaType]);
 
   return {
@@ -43,6 +48,6 @@ export const usePizzaOptions = (items: ProductItemGet[]): ReturnProps => {
     selectedIngredients,
     addIngredient,
     availableSizes,
-    productItems:items,
+    currentProuctItemId
   }
 };

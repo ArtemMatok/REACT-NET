@@ -1,4 +1,4 @@
-import { ProductGetWithIngredientsWithItems, ProductShortGet } from "./Product"
+import {  ProductShortGet } from "./Product"
 
 export type ProductItemGet = {
     productItemId:number,
@@ -9,7 +9,7 @@ export type ProductItemGet = {
     product:ProductShortGet
 }
 
-export type ProductItemWithIngredients = {
-    productItem:ProductItemGet;
+export type CreateCartItem = {
+    productItemId:number;
     ingredientsId:number[];
 }

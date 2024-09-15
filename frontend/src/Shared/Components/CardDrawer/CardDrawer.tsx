@@ -15,6 +15,7 @@ import { CardDrawerItem } from "../index";
 import { getCartItemDetails } from "@/lib";
 import { useCartState } from "@/Shared/Store/Cart";
 import { PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
+import Cookies from "js-cookie";
 
 
 interface Props {
@@ -25,7 +26,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
   children,
   className,
 }) => {
-  const token = localStorage.getItem("cartToken");;
+  const token = Cookies.get("cartToken");
 
   const [totalAmount, getCartItems, cartItems, UpdateCartByItemQuantity, removeCartItem] = useCartState((state) => [
     state.totalAmount,
@@ -66,6 +67,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
             {cartItems.map((item) => (
               <CardDrawerItem
                 id={item.cartItemId}
+                key={item.cartItemId}
                 details={item.size && item.pizzaType  ? getCartItemDetails(item.pizzaType as PizzaType, item.size as PizzaSize, item.ingredients) : ""}
                 imageUrl={
                   item.imageUrl

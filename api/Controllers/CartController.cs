@@ -214,7 +214,7 @@ namespace api.Controllers
                 {
                     CartId = cartId,
                     Quantity = 1,
-                    ProductItemId = productItemWithIngredient.ProductItem.ProductItemId,
+                    ProductItemId = productItemWithIngredient.ProductItemId,
                     Ingredients = await _ingredientRepository.GetIngredientsBySelectedId(productItemWithIngredient.IngredientsId)
                 };
 

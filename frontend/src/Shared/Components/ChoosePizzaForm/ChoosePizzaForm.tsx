@@ -1,5 +1,5 @@
 import { IngredientForProducts } from "@/Shared/Models/Ingredient";
-import { ProductItemGet, ProductItemWithIngredients } from "@/Shared/Models/ProductItem";
+import { ProductItemGet, CreateCartItem } from "@/Shared/Models/ProductItem";
 import { cn } from "@/ui/ui";
 import React, { useEffect, useState } from "react";
 import { IngredientItem, PizzaImage, Title } from "../index/index";
@@ -25,8 +25,7 @@ interface Props {
   name: string;
   ingredients: IngredientForProducts[];
   items: ProductItemGet[];
-  product:ProductShortGet;
-  onClickAddCart?: VoidFunction;
+  onSubmit: (prouctItemId:number, ingredientId:number[]) => void;
 }
 
 export const ChoosePizzaForm: React.FC<Props> = ({
@@ -35,11 +34,10 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   imageUrl,
   ingredients,
   items,
-  product,
-  onClickAddCart,
+  onSubmit,
 }) => {
  
-  const {size, pizzaType, selectedIngredients,availableSizes,setSize, setPizzaType, addIngredient, productItems} = usePizzaOptions(items);
+  const {size, pizzaType, selectedIngredients,availableSizes,setSize, setPizzaType, addIngredient,currentProuctItemId} = usePizzaOptions(items);
 
   
 
@@ -54,32 +52,9 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
 
   const handleClickAdd =async () => {
-    onClickAddCart?.();
-    // const getProductItem = async () => {
-    //   try {
-    //     const productItem = await GetProductItemByParameters(product.productId, size, pizzaType);
-    //     return productItem;
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
-
-    // const productItem = await getProductItem();
-
-    // if(productItem){
-    //   const productItemWithIngredients:ProductItemWithIngredients = {
-    //     productItem:productItem,
-    //     ingredientsId: Array.from(selectedIngredients),
-    //   }
-
-    //   try {
-    //     const cart = await UpdateCartByAdding(productItemWithIngredients);
-    //     console.log(cart);
-    //   } catch (error) {
-    //    console.log(error); 
-    //   }
-      
-    // }
+    if(currentProuctItemId){
+      onSubmit(currentProuctItemId, Array.from(selectedIngredients))
+    }
     
   };
 

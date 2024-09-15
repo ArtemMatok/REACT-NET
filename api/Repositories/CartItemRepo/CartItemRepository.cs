@@ -43,21 +43,36 @@ namespace api.Repositories.CartItemRepo
         {
             var cartItems = await _context.CartItems
                 .Where(x => x.CartId == cartId &&
-                    x.ProductItem.ProductId == productItemWithIngredients.ProductItem.ProductId)
-               .ToListAsync();
+                    x.ProductItem.ProductItemId == productItemWithIngredients.ProductItemId)
+                .ToListAsync();
 
-           
-            var cartItem = cartItems
+            if(productItemWithIngredients.IngredientsId.Count != 0)
+            {
+                var cartItem = cartItems
                     .FirstOrDefault(x => x.Ingredients != null &&
                         x.Ingredients.Count == productItemWithIngredients.IngredientsId.Count &&
                         x.Ingredients.All(i => productItemWithIngredients.IngredientsId
                             .Any(p => p == i.IngredientId)));
-
-            if (cartItem is null)
-            {
-                return null;
+                if (cartItem is null)
+                {
+                    return null;
+                }
+                return cartItem;
             }
-            return cartItem;
+            else
+            {
+                var cartItem = cartItems
+                     .FirstOrDefault(x => x.Ingredients.Count == productItemWithIngredients.IngredientsId.Count);
+                if (cartItem is null)
+                {
+                    return null;
+                }
+                return cartItem;
+            }
+            
+
+
+          
         }
 
         public bool IsExsistCartItem(int cartItemId)

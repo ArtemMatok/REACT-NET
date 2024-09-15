@@ -1,8 +1,9 @@
 import { create } from "zustand";
 
-import { GetCartByUserIdOrToken, UpdateCartByDeletingCartItem, UpdateCartByItemQuantity } from "../Services/Cart";
+import { GetCartByUserIdOrToken, UpdateCartByAdding, UpdateCartByDeletingCartItem, UpdateCartByItemQuantity } from "../Services/Cart";
 import { getCartDetails } from "@/lib";
 import { CartStateItem } from "@/lib/getCartDetails";
+import { CreateCartItem } from "../Models/ProductItem";
 
 
 
@@ -18,7 +19,7 @@ export interface CartState{
     updateItemQuantity:(token:string,cartItemId:number, quantity:number) =>Promise<void>;
 
     //Add item in cart
-    addCartItem: (values:any) => Promise<void>;
+    addCartItem: (values:CreateCartItem) => Promise<void>;
 
     //Delete item from cart
     removeCartItem:(token:string,id:number) => Promise<void>; 
@@ -73,5 +74,17 @@ export const useCartState = create<CartState>((set,get) => ({
             set({loading:false});
         }
     },
-    addCartItem:async(values:any) => {}
+    addCartItem:async(values:CreateCartItem) => {
+        try {
+            set({loading:true, error:false});
+            const data = await UpdateCartByAdding(values);
+            //set data
+            set(getCartDetails(data));
+        } catch (error) {
+            console.log(error);
+            set({error:true});
+        }finally{
+            set({loading:false});
+        }
+    }
 }))
