@@ -1,6 +1,8 @@
 ﻿using api.Data;
+using api.DTOs.RequestDTOs;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace api.Repositories.CategoryRepo
 {
@@ -13,14 +15,24 @@ namespace api.Repositories.CategoryRepo
             _context = context;
         }
 
-        public async Task<List<Category>?> GetAllCategoriesWithFullProduct()
+        public async Task<List<Category>?> GetAllCategoriesWithFullProduct(GetProductSearchParams searchParams)
         {
-            return await _context.Categories
-            .Include(x => x.Products)
-                .ThenInclude(x => x.Ingredients) // Включаємо Ingredients
-            .Include(x => x.Products)
-                .ThenInclude(x => x.ProductItems) // Включаємо ProductItems
-            .ToListAsync();
+            var query = _context.Categories
+                .Include(x => x.Products)
+                    .ThenInclude(x => x.Ingredients)
+                .Include(x => x.Products)
+                    .ThenInclude(x => x.ProductItems)
+                .AsQueryable();
+
+             if (searchParams.IngredientsId != null)
+             {
+                 query = query.Where(x => x.Products
+                     .Any(p => p.Ingredients.Any(i => searchParams.IngredientsId.Contains(i.IngredientId))))
+                     .AsQueryable();
+             }
+
+            return await query
+                .ToListAsync();
         }
     }
 }

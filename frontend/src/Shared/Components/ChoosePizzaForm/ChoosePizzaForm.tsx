@@ -12,12 +12,12 @@ import {
   PizzaType,
   pizzaTypes,
 } from "@/Shared/Constants/pizza";
-import { useSet } from "react-use";
-import { calcTotalPizzaPrice, getAvailablePizzaSizes, getPizzaDetails } from "@/lib/index";
+import {
+  calcTotalPizzaPrice,
+  getAvailablePizzaSizes,
+  getPizzaDetails,
+} from "@/lib/index";
 import { usePizzaOptions } from "@/Shared/Hooks";
-import { ProductShortGet } from "@/Shared/Models/Product";
-import { GetProductItemByParameters } from "@/Shared/Services/ProductItem";
-import { UpdateCartByAdding } from "@/Shared/Services/Cart";
 
 interface Props {
   className?: string;
@@ -25,7 +25,8 @@ interface Props {
   name: string;
   ingredients: IngredientForProducts[];
   items: ProductItemGet[];
-  onSubmit: (prouctItemId:number, ingredientId:number[]) => void;
+  loading?: boolean;
+  onSubmit: (prouctItemId: number, ingredientId: number[]) => void;
 }
 
 export const ChoosePizzaForm: React.FC<Props> = ({
@@ -34,12 +35,19 @@ export const ChoosePizzaForm: React.FC<Props> = ({
   imageUrl,
   ingredients,
   items,
+  loading,
   onSubmit,
 }) => {
- 
-  const {size, pizzaType, selectedIngredients,availableSizes,setSize, setPizzaType, addIngredient,currentProuctItemId} = usePizzaOptions(items);
-
-  
+  const {
+    size,
+    pizzaType,
+    selectedIngredients,
+    availableSizes,
+    setSize,
+    setPizzaType,
+    addIngredient,
+    currentProuctItemId,
+  } = usePizzaOptions(items);
 
   const totalPrice = calcTotalPizzaPrice(
     pizzaType,
@@ -48,14 +56,12 @@ export const ChoosePizzaForm: React.FC<Props> = ({
     ingredients,
     selectedIngredients
   );
-  const textDetails = getPizzaDetails(size, pizzaType);  
+  const textDetails = getPizzaDetails(size, pizzaType);
 
-
-  const handleClickAdd =async () => {
-    if(currentProuctItemId){
-      onSubmit(currentProuctItemId, Array.from(selectedIngredients))
+  const handleClickAdd = async () => {
+    if (currentProuctItemId) {
+      onSubmit(currentProuctItemId, Array.from(selectedIngredients));
     }
-    
   };
 
   return (
@@ -96,6 +102,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
         </div>
 
         <Button
+          loading={loading}
           onClick={handleClickAdd}
           className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
         >

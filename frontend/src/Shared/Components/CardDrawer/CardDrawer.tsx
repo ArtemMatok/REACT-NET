@@ -17,7 +17,6 @@ import { useCartState } from "@/Shared/Store/Cart";
 import { PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
 import Cookies from "js-cookie";
 
-
 interface Props {
   className?: string;
 }
@@ -28,29 +27,36 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
 }) => {
   const token = Cookies.get("cartToken");
 
-  const [totalAmount, getCartItems, cartItems, UpdateCartByItemQuantity, removeCartItem] = useCartState((state) => [
+  const [
+    totalAmount,
+    getCartItems,
+    cartItems,
+    UpdateCartByItemQuantity,
+    removeCartItem,
+  ] = useCartState((state) => [
     state.totalAmount,
     state.getCartItems,
     state.cartItems,
     state.updateItemQuantity,
-    state.removeCartItem
+    state.removeCartItem,
   ]);
 
   useEffect(() => {
-    if(token){
+    if (token) {
       getCartItems(undefined, token);
     }
-   
-
   }, []);
 
-  const onClickCountButton = (cartItemId:number, quantity:number, type:"plus"|"minus") => {
-    const newQuantity = type === "plus" ? quantity+1 : quantity-1;
-    if(token){
+  const onClickCountButton = (
+    cartItemId: number,
+    quantity: number,
+    type: "plus" | "minus"
+  ) => {
+    const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
+    if (token) {
       UpdateCartByItemQuantity(token, cartItemId, newQuantity);
     }
-    
-  }
+  };
 
   return (
     <Sheet>
@@ -63,23 +69,30 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
         </SheetHeader>
 
         <div className="mx-6 mt-5 overflow-auto scrollbar flex-1">
-          <div className="mb-2">
-            {cartItems.map((item) => (
+          {cartItems.map((item) => (
+            <div key={item.cartItemId} className="mb-2">
               <CardDrawerItem
                 id={item.cartItemId}
-                key={item.cartItemId}
-                details={item.size && item.pizzaType  ? getCartItemDetails(item.pizzaType as PizzaType, item.size as PizzaSize, item.ingredients) : ""}
-                imageUrl={
-                  item.imageUrl
+                details={
+                  item.size && item.pizzaType
+                    ? getCartItemDetails(
+                        item.pizzaType as PizzaType,
+                        item.size as PizzaSize,
+                        item.ingredients
+                      )
+                    : ""
                 }
+                imageUrl={item.imageUrl}
                 name={item.name}
                 price={item.price}
                 quantity={item.quantity}
-                onClickCountButton={(type) => onClickCountButton(item.cartItemId, item.quantity, type)}
-                onClickRemove={() => removeCartItem(token!,item.cartItemId )}
+                onClickCountButton={(type) =>
+                  onClickCountButton(item.cartItemId, item.quantity, type)
+                }
+                onClickRemove={() => removeCartItem(token!, item.cartItemId)}
               />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         <SheetFooter className="-mx-6 bg-white p-8">
@@ -92,6 +105,12 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
 
               <span className="font-bold text-lg">${totalAmount}</span>
             </div>
+            {/* <Link to="/chart">
+              <Button type="submit" className="w-full h-12 text-base">
+                Make Order
+                <ArrowRight className="w-5 ml-2" />
+              </Button>
+            </Link> */}
             <Link to="/chart">
               <Button type="submit" className="w-full h-12 text-base">
                 Make Order

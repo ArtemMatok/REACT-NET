@@ -1,4 +1,5 @@
-﻿using api.Models;
+﻿using api.DTOs.RequestDTOs;
+using api.Models;
 using api.Repositories.CategoryRepo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,10 @@ namespace api.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        [HttpGet("GetAllCategoriesWuthFullProducts")]
-        public async Task<IActionResult> GetAllCategoriesWuthFullProducts()
+        [HttpGet("GetAllCategoriesWithFullProducts")]
+        public async Task<IActionResult> GetAllCategoriesWuthFullProducts(GetProductSearchParams searchParams)
         {
-            var result = await _categoryRepository.GetAllCategoriesWithFullProduct();
+            var result = await _categoryRepository.GetAllCategoriesWithFullProduct(searchParams);
 
             if(result is null)
             {

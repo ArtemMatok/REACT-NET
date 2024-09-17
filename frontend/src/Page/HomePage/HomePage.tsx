@@ -1,4 +1,5 @@
 
+import { findPizzas, GetProductSearchParams } from "@/lib/findPizza";
 import { DialogDemo } from "@/Shared/Components/DialogProduct/DialogProduct";
 import {
   Categories,
@@ -10,24 +11,27 @@ import {
 } from "@/Shared/Components/index/index";
 import { CategoryGetWithProducts } from "@/Shared/Models/Category";
 import { ProductGetWithIngredientsWithItems } from "@/Shared/Models/Product";
-import { GetCartByUserIdOrToken } from "@/Shared/Services/Cart";
-import { GetCategoryWithFullProduct } from "@/Shared/Services/Category";
+
 import { useEffect, useRef, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 type Props = {};
 
-const HomePage = (props: Props) => {
+const HomePage = () => {
+
   const[categories, setCategories] = useState<CategoryGetWithProducts[]>([]);
   const[selectedProduct, setSelectedProduct] = useState<ProductGetWithIngredientsWithItems | null>(null);
   const[isOpenModel, setIsOpenModel] = useState<boolean>(false);
-
+  const location = useLocation();
   useEffect(()=>{
     const getCategories = async() => {
-      const res = await GetCategoryWithFullProduct();
+      const res = await findPizzas(location.search);
       setCategories(res);
     }
     getCategories();
-  },[])  
+    console.log("location:", location.search);
+
+  },[location])  
 
   const handleProductClick = (product:ProductGetWithIngredientsWithItems) =>{
     setSelectedProduct(product);

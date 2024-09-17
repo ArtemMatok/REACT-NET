@@ -2,10 +2,8 @@ import { ProductGetWithIngredientsWithItems } from "@/Shared/Models/Product";
 import { Dialog, DialogContent } from "@/ui/components/ui/dialog";
 import { cn } from "@/ui/ui";
 import { ChoosePizzaForm, ChooseProductForm, Filters } from "../index/index";
-import { UpdateCartByAdding } from "@/Shared/Services/Cart";
-import { CartItemGet } from "@/Shared/Models/CartItem";
-import { ProductItemGet } from "@/Shared/Models/ProductItem";
 import { useCartState } from "@/Shared/Store/Cart";
+import toast from "react-hot-toast";
 
 type Props = {
   product: ProductGetWithIngredientsWithItems;
@@ -17,7 +15,7 @@ type Props = {
 export function DialogDemo({ isOpen, product, onClose, className }: Props) {
   const firstItem = product.productItems[0];
   const isPizzaForm = Boolean(product.productItems[0].pizzaType);
-  const addCartItem = useCartState((state) => state.addCartItem);
+  const [addCartItem, loading] = useCartState((state) => [state.addCartItem, state.loading]);
 
   const onAddProuct = () => {
     addCartItem({
@@ -25,16 +23,25 @@ export function DialogDemo({ isOpen, product, onClose, className }: Props) {
       ingredientsId: [],
     });
   };
-  const onAddPizza = (
+
+  const onAddPizza = async (
     prouctItemId: number,
     ingredientsId: number[]
   ) => {
-    console.log("ProductIten+ingredients", {prouctItemId , ingredientsId})
-    addCartItem({
-      productItemId: prouctItemId,
-      ingredientsId: ingredientsId,
-    });
+    try {
+      await addCartItem({
+        productItemId: prouctItemId,
+        ingredientsId: ingredientsId,
+      });
+      toast.success("Pizza was added to the cart")
+      onClose();
+    } catch (error) {
+      toast.error("Could not add pizza to the cart")
+      console.error(error)
+    }
+
   };
+
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -51,6 +58,7 @@ export function DialogDemo({ isOpen, product, onClose, className }: Props) {
             ingredients={product.ingredients}
             items={product.productItems}
             onSubmit={onAddPizza}
+            loading={loading}
           />
         ) : (
           <ChooseProductForm
@@ -58,11 +66,9 @@ export function DialogDemo({ isOpen, product, onClose, className }: Props) {
             name={product.name}
             onSubmit={onAddProuct}
             price={firstItem.price}
+            loading={loading}
           />
         )}
-        {/* <Link to={`product/${product.productId}`}>
-          <Button>See full information</Button>
-        </Link> */}
       </DialogContent>
     </Dialog>
   );
