@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\React-Pizza\\REACT-NET\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\repositories\\categoryrepo\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\repositories\\categoryrepo\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +15,34 @@
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\dtos\\requestdtos\\getproductsearchparams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\models\\productitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\models\\productitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\d1bdd84ca1b9ca3ca5ff5fb792a70df3d6d690cd2233c28a868dba8f05736300\\Type.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\repositories\\categoryrepo\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\repositories\\categoryrepo\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\mapper\\categorymap\\categorymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\mapper\\categorymap\\categorymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\mapper\\productmap\\productmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\mapper\\productmap\\productmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\mapper\\productitemmap\\productitemmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\mapper\\productitemmap\\productitemmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\dtos\\productdtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\dtos\\productdtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\repositories\\cartitemrepo\\cartitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,9 +51,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\dtos\\productitemsdtos\\productitemwithingredientsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\dtos\\productitemsdtos\\productitemwithingredientsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\4dcf567db33b8407e8e7e85491df71d46c06985d33f5ad8d904e52c3b325c6c5\\ExecutionContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\repositories\\cartrepo\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,20 +90,12 @@
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\controllers\\productitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\mapper\\productitemmap\\productitemmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\mapper\\productitemmap\\productitemmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\repositories\\productitemrepo\\iproductitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\repositories\\productitemrepo\\iproductitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\models\\productitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\models\\productitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -111,13 +126,6 @@
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\dtos\\productdtos\\productshortdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\dtos\\productdtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\dtos\\productdtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\943866804c986b3f1c185b0aaf5a6b2eb778d67c9141c5459bf5f86981d49a11\\AsyncTaskMethodBuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|d:\\react-pizza\\react-net\\api\\mapper\\ingredientmap\\ingredientmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0225A4E3-5EC4-48D2-B517-E5F878F7F8C3}|api\\api.csproj|solutionrelative:api\\mapper\\ingredientmap\\ingredientmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -142,28 +150,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GetProductSearchParams.cs",
-              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
-              "RelativeDocumentMoniker": "api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
-              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
-              "RelativeToolTip": "api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
+              "RelativeToolTip": "api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAIwD4AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T16:59:40.271Z",
+              "WhenOpened": "2024-09-16T16:58:23.101Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
-              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
-              "RelativeToolTip": "api\\Repositories\\CategoryRepo\\CategoryRepository.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAswBEAAABhAAAA",
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "api\\Controllers\\CategoryController.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "api\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAD4vyYAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T16:58:23.101Z",
+              "WhenOpened": "2024-09-16T19:11:29.949Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -197,31 +205,115 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "api\\Controllers\\CategoryController.cs",
-              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "api\\Controllers\\CategoryController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAABQAAABKAAAA",
+              "DocumentIndex": 4,
+              "Title": "Type.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\d1bdd84ca1b9ca3ca5ff5fb792a70df3d6d690cd2233c28a868dba8f05736300\\Type.cs",
+              "ToolTip": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\d1bdd84ca1b9ca3ca5ff5fb792a70df3d6d690cd2233c28a868dba8f05736300\\Type.cs [Read Only]",
+              "ViewState": "AQIAAM8BAAAAAAAAAAD4v9QBAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-16T19:11:29.949Z"
+              "WhenOpened": "2024-09-20T07:27:36.168Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetProductSearchParams.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
+              "RelativeDocumentMoniker": "api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
+              "RelativeToolTip": "api\\DTOs\\RequestDTOs\\GetProductSearchParams.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T07:22:11.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InferParameterBindingInfoConvention.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs",
+              "ToolTip": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs [Read Only]",
+              "ViewState": "AQIAADcAAAAAAAAAAAD4vz8AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T07:21:27.259Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductMapper.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\ProductMap\\ProductMapper.cs",
+              "RelativeDocumentMoniker": "api\\Mapper\\ProductMap\\ProductMapper.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\ProductMap\\ProductMapper.cs",
+              "RelativeToolTip": "api\\Mapper\\ProductMap\\ProductMapper.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAQwDIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T13:21:36.309Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ProductItem.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Models\\ProductItem.cs",
+              "RelativeDocumentMoniker": "api\\Models\\ProductItem.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Models\\ProductItem.cs",
+              "RelativeToolTip": "api\\Models\\ProductItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T18:57:26.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CategoryRepo\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\CategoryRepo\\ICategoryRepository.cs",
               "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CategoryRepo\\ICategoryRepository.cs",
               "RelativeToolTip": "api\\Repositories\\CategoryRepo\\ICategoryRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA+AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T18:54:03.34Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
+              "Title": "ProductItemMapper.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
+              "RelativeDocumentMoniker": "api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
+              "RelativeToolTip": "api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T18:43:29.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CategoryMapper.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\CategoryMap\\CategoryMapper.cs",
+              "RelativeDocumentMoniker": "api\\Mapper\\CategoryMap\\CategoryMapper.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\CategoryMap\\CategoryMapper.cs",
+              "RelativeToolTip": "api\\Mapper\\CategoryMap\\CategoryMapper.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAwA8AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T13:14:48.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductDTOs\\ProductDto.cs",
+              "RelativeDocumentMoniker": "api\\DTOs\\ProductDTOs\\ProductDto.cs",
+              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductDTOs\\ProductDto.cs",
+              "RelativeToolTip": "api\\DTOs\\ProductDTOs\\ProductDto.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T10:31:19.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "CartItemRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CartItemRepo\\CartItemRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\CartItemRepo\\CartItemRepository.cs",
@@ -229,11 +321,12 @@
               "RelativeToolTip": "api\\Repositories\\CartItemRepo\\CartItemRepository.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAD4vzoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T08:13:58.56Z"
+              "WhenOpened": "2024-09-08T08:13:58.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "ProductItemWithIngredientsDto.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductItemsDTOs\\ProductItemWithIngredientsDto.cs",
               "RelativeDocumentMoniker": "api\\DTOs\\ProductItemsDTOs\\ProductItemWithIngredientsDto.cs",
@@ -245,18 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ExecutionContext.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\4dcf567db33b8407e8e7e85491df71d46c06985d33f5ad8d904e52c3b325c6c5\\ExecutionContext.cs",
-              "ToolTip": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\4dcf567db33b8407e8e7e85491df71d46c06985d33f5ad8d904e52c3b325c6c5\\ExecutionContext.cs [Read Only]",
-              "ViewState": "AQIAAGAAAAAAAAAAAAD4v48AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-15T09:51:40.766Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "dbo.Carts [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/PizzaProject/True/SqlTable/dbo.Carts.sql",
               "ToolTip": "dbo.Carts [Data]",
@@ -265,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "ProductItemRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\ProductItemRepo\\ProductItemRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\ProductItemRepo\\ProductItemRepository.cs",
@@ -277,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "CartRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CartRepo\\CartRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\CartRepo\\CartRepository.cs",
@@ -285,11 +367,12 @@
               "RelativeToolTip": "api\\Repositories\\CartRepo\\CartRepository.cs",
               "ViewState": "AQIAAHsAAAAAAAAAAAAIwIsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-08T07:38:10.945Z"
+              "WhenOpened": "2024-09-08T07:38:10.945Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "ICartRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CartRepo\\ICartRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\CartRepo\\ICartRepository.cs",
@@ -301,7 +384,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "ICartItemRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\CartItemRepo\\ICartItemRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\CartItemRepo\\ICartItemRepository.cs",
@@ -313,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "IProductItemRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\ProductItemRepo\\IProductItemRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\ProductItemRepo\\IProductItemRepository.cs",
@@ -325,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "D:\\VSStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\VSStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -337,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "dbo.CartItems [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/PizzaProject/True/SqlTable/dbo.CartItems.sql",
               "ToolTip": "dbo.CartItems [Data]",
@@ -346,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "ProductItemWithProductDto.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductItemsDTOs\\ProductItemWithProductDto.cs",
               "RelativeDocumentMoniker": "api\\DTOs\\ProductItemsDTOs\\ProductItemWithProductDto.cs",
@@ -358,7 +441,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Program.cs",
               "RelativeDocumentMoniker": "api\\Program.cs",
@@ -370,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "ProductItemController.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Controllers\\ProductItemController.cs",
               "RelativeDocumentMoniker": "api\\Controllers\\ProductItemController.cs",
@@ -378,23 +461,12 @@
               "RelativeToolTip": "api\\Controllers\\ProductItemController.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAAAjwBwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T10:07:00.356Z"
+              "WhenOpened": "2024-09-14T10:07:00.356Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ProductItemMapper.cs",
-              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
-              "RelativeDocumentMoniker": "api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
-              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
-              "RelativeToolTip": "api\\Mapper\\ProductItemMap\\ProductItemMapper.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAjwB8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T18:43:29.327Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "CartItem.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "api\\Models\\CartItem.cs",
@@ -406,19 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "ProductItem.cs",
-              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Models\\ProductItem.cs",
-              "RelativeDocumentMoniker": "api\\Models\\ProductItem.cs",
-              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\Models\\ProductItem.cs",
-              "RelativeToolTip": "api\\Models\\ProductItem.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAuwAQAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T18:57:26.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "IngredientRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\IngredientsRepo\\IngredientRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\IngredientsRepo\\IngredientRepository.cs",
@@ -430,7 +490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "ProductItemDto.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductItemsDTOs\\ProductItemDto.cs",
               "RelativeDocumentMoniker": "api\\DTOs\\ProductItemsDTOs\\ProductItemDto.cs",
@@ -442,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "IIngredientRepository.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Repositories\\IngredientsRepo\\IIngredientRepository.cs",
               "RelativeDocumentMoniker": "api\\Repositories\\IngredientsRepo\\IIngredientRepository.cs",
@@ -454,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "CartItemController.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Controllers\\CartItemController.cs",
               "RelativeDocumentMoniker": "api\\Controllers\\CartItemController.cs",
@@ -466,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "CartItemDto.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\CartItemDTOs\\CartItemDto.cs",
               "RelativeDocumentMoniker": "api\\DTOs\\CartItemDTOs\\CartItemDto.cs",
@@ -478,7 +538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "CartItemMapper.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\CartItemMap\\CartItemMapper.cs",
               "RelativeDocumentMoniker": "api\\Mapper\\CartItemMap\\CartItemMapper.cs",
@@ -490,7 +550,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "ProductShortDto.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductDTOs\\ProductShortDto.cs",
               "RelativeDocumentMoniker": "api\\DTOs\\ProductDTOs\\ProductShortDto.cs",
@@ -502,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "IngredientMapper.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\IngredientMap\\IngredientMapper.cs",
               "RelativeDocumentMoniker": "api\\Mapper\\IngredientMap\\IngredientMapper.cs",
@@ -514,30 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ProductDto.cs",
-              "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductDTOs\\ProductDto.cs",
-              "RelativeDocumentMoniker": "api\\DTOs\\ProductDTOs\\ProductDto.cs",
-              "ToolTip": "D:\\React-Pizza\\REACT-NET\\api\\DTOs\\ProductDTOs\\ProductDto.cs",
-              "RelativeToolTip": "api\\DTOs\\ProductDTOs\\ProductDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T10:31:19.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "AsyncTaskMethodBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\943866804c986b3f1c185b0aaf5a6b2eb778d67c9141c5459bf5f86981d49a11\\AsyncTaskMethodBuilder.cs",
-              "ToolTip": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\943866804c986b3f1c185b0aaf5a6b2eb778d67c9141c5459bf5f86981d49a11\\AsyncTaskMethodBuilder.cs [Read Only]",
-              "ViewState": "AQIAAKQAAAAAAAAAAAD4v64AAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-13T16:17:06.179Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "CartMapper.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Mapper\\CartMap\\CartMapper.cs",
               "RelativeDocumentMoniker": "api\\Mapper\\CartMap\\CartMapper.cs",
@@ -549,7 +586,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "CartToken.cs",
               "DocumentMoniker": "D:\\React-Pizza\\REACT-NET\\api\\Helpers\\Token\\CartToken.cs",
               "RelativeDocumentMoniker": "api\\Helpers\\Token\\CartToken.cs",

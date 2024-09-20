@@ -1,17 +1,20 @@
-import { GetProductsByParams } from "@/lib/findPizza";
-import { CategoryGetWithProducts } from "@/Shared/Models/Category";
+
 import axios from "axios";
+import { CategoryGetWithProducts } from "../Models/Category";
+import { getParams } from "@/lib/getParams";
 
 const api = "http://localhost:5002/api/Category/";
 
 
-export const GetCategoryWithFullProduct = async(params:GetProductsByParams)=> {
-    console.log("params:",params);
+export type GetProductSearchParams = {
+    ingredients?:number[]
+}
 
-    //TODO спробувати Update
-    const { data } = await axios.get<CategoryGetWithProducts[]>(api + "GetAllCategoriesWithFullProducts",
-        {params:params}, 
-    );
+export const GetCategoriesWithProducts =  async(query:string) => {
+    const{ingredientsId, pizzaTypes, sizes,priceFrom,priceTo} = getParams(query);
 
-    return data;
+
+    const data = await axios.put<CategoryGetWithProducts[]>(api+`GetAllCategoriesWithFullProducts`, {ingredientsId,pizzaTypes,sizes,priceFrom,priceTo});
+
+    return data.data;
 }

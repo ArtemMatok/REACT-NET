@@ -5,6 +5,7 @@ namespace api.Repositories.CategoryRepo
 {
     public interface ICategoryRepository
     {
-        Task<List<Category>?> GetAllCategoriesWithFullProduct(GetProductSearchParams searchParams);
+        List<Category> GetAllCategoriesWithFullProductByIngredients(GetProductSearchParams searchParams);
+        Task<List<Category>> GetAllCategoriesWithProducts();
     }
 }

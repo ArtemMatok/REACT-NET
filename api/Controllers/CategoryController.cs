@@ -11,22 +11,32 @@ namespace api.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepository;
-
-        public CategoryController(ICategoryRepository categoryRepository)
+        private readonly ILogger<CategoryController> _logger;
+        public CategoryController(ICategoryRepository categoryRepository, ILogger<CategoryController> logger)
         {
             _categoryRepository = categoryRepository;
+            _logger = logger;
         }
 
-        [HttpGet("GetAllCategoriesWithFullProducts")]
-        public async Task<IActionResult> GetAllCategoriesWuthFullProducts(GetProductSearchParams searchParams)
+        [HttpPut("GetAllCategoriesWithFullProducts")]
+        public  async Task<IActionResult> GetAllCategoriesWuthFullProducts(GetProductSearchParams searchParams)
         {
-            var result = await _categoryRepository.GetAllCategoriesWithFullProduct(searchParams);
-
-            if(result is null)
+            if (searchParams.IngredientsId is null && searchParams.PizzaTypes is null &&  searchParams.Sizes is null && searchParams.PriceTo == null && searchParams.PriceFrom == null)
             {
-                return Ok(new List<Category>());
+                var categoriesAll = await _categoryRepository.GetAllCategoriesWithProducts();
+                return Ok(categoriesAll);
             }
-            return Ok(result);
+            else
+            {
+                var categories = _categoryRepository.GetAllCategoriesWithFullProductByIngredients(searchParams);
+                if (categories is null)
+                {
+                    return Ok();
+                }
+                return Ok(categories);
+            }
+
+           
         }
     }
 }

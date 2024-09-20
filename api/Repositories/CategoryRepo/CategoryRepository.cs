@@ -15,24 +15,70 @@ namespace api.Repositories.CategoryRepo
             _context = context;
         }
 
-        public async Task<List<Category>?> GetAllCategoriesWithFullProduct(GetProductSearchParams searchParams)
+        public List<Category> GetAllCategoriesWithFullProductByIngredients(GetProductSearchParams searchParams)
         {
-            var query = _context.Categories
+            var query =  _context.Categories
                 .Include(x => x.Products)
                     .ThenInclude(x => x.Ingredients)
                 .Include(x => x.Products)
-                    .ThenInclude(x => x.ProductItems)
-                .AsQueryable();
+                    .ThenInclude(x => x.ProductItems).AsQueryable();
 
-             if (searchParams.IngredientsId != null)
-             {
-                 query = query.Where(x => x.Products
-                     .Any(p => p.Ingredients.Any(i => searchParams.IngredientsId.Contains(i.IngredientId))))
-                     .AsQueryable();
-             }
+            if (searchParams.IngredientsId != null)
+            {
 
-            return await query
-                .ToListAsync();
+                query = query.Select(c => new Category
+                {
+                    CategoryId = c.CategoryId,
+                    Name = c.Name,
+                    Products = c.Products.Where(p => p.Ingredients.Any(i => searchParams.IngredientsId.Contains(i.IngredientId))).ToList()
+                }).Where(c => c.Products.Any());
+            }
+
+            if(searchParams.PizzaTypes != null)
+            {
+                query = query.Select(c => new Category
+                {
+                    CategoryId = c.CategoryId,
+                    Name = c.Name,
+                    Products = c.Products.Where(p => p.ProductItems.Any(pi =>pi.PizzaType.HasValue && searchParams.PizzaTypes.Contains(pi.PizzaType.Value))).ToList()
+                }).Where(c=>c.Products.Any());
+            }
+
+            if (searchParams.Sizes != null && searchParams.Sizes.Any())
+            {
+                query = query.Select(c => new Category
+                {
+                    CategoryId = c.CategoryId,
+                    Name = c.Name,
+                    Products = c.Products
+                        .Where(p => p.ProductItems
+                            .Any(pi => pi.Size.HasValue && searchParams.Sizes.Contains(pi.Size.Value)))
+                        .ToList()  // Якщо потрібне негайне матеріалізування результату
+                })
+                .Where(c => c.Products.Any());  // Фільтруємо категорії, які мають продукти
+            }
+
+                query = query.Select(c => new Category
+                {
+                    CategoryId = c.CategoryId,
+                    Name = c.Name,
+                    Products = c.Products
+                        .Where(p => p.ProductItems
+                            .Any(pi =>pi.Price >= searchParams.PriceFrom && pi.Price<=searchParams.PriceTo))
+                        .ToList()  // Якщо потрібне негайне матеріалізування результату
+                }).Where(c=>c.Products.Any());
+
+
+            return query.ToList();
+        }
+
+        public async Task<List<Category>> GetAllCategoriesWithProducts()
+        {
+            return await _context.Categories
+                .Include(x => x.Products)
+                    .ThenInclude(x => x.Ingredients)
+                .Include(x => x.Products)
+                    .ThenInclude(x => x.ProductItems).ToListAsync();
         }
     }
 }

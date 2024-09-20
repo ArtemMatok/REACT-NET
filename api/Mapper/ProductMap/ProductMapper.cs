@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using api.DTOs.ProductDTOs;
+using api.Mapper.IngredientMap;
 using api.Models;
 
 namespace api.Mapper.ProductMap
@@ -30,5 +31,22 @@ namespace api.Mapper.ProductMap
                 Image = product.Image
             };
         }
+
+        //public static List<ProductDto> ToProductDto (this List<Product> products)
+        //{
+        //    var productRes = new List<ProductDto>();
+
+        //    foreach (var item in products)
+        //    {
+        //        productRes.Add(new ProductDto()
+        //        {
+        //            ProductId= item.ProductId,
+        //            Image = item.Image,
+        //            Name = item.Name,
+        //            Ingredients = item.Ingredients.ToIngreditentDto(),
+        //            ProductItems = item.ProductItems
+        //        })
+        //    }
+        //}
     }
 }
