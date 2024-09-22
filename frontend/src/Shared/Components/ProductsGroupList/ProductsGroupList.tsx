@@ -47,8 +47,8 @@ export const ProductsGroupList: React.FC<Props> = ({
             name={product.name}
             imageUrl={product.image}
             price={product.productItems[0].price.toString()}
+            ingredients={product.ingredients}
             onClick={()=>onProductClick(product)}
-          
           />
 
         ))
