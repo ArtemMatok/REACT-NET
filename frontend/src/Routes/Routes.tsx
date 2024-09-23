@@ -1,4 +1,5 @@
 import App from "@/App";
+import CartOrderLayout from "@/CartOrder/layout";
 import Dashboard from "@/Dashboard/Dashboard";
 import HomePage from "@/Page/HomePage/HomePage";
 import NotFound from "@/Page/NotFound/NotFound";
@@ -23,5 +24,9 @@ export const router = createBrowserRouter([
         //     {path:"notFound", element:<NotFound />},
         //     {path:"product/:id", element:<ProductPage />}
         // ]
+    },
+    {
+        path:"/cart",
+        element:<CartOrderLayout />,
     }
 ])
