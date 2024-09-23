@@ -8,10 +8,16 @@ import { Link } from "react-router-dom";
 
 interface Props {
   className?: string;
+  hasCart?: boolean;
+  hasSearch?: boolean;
 }
 
-export const Header: React.FC<Props> = ({ className }) => (
-  <header className={cn("border border-b", className)}>
+export const Header: React.FC<Props> = ({
+  hasSearch = true,
+  hasCart = true,
+  className,
+}) => (
+  <header className={cn("border-b", className)}>
     <Container className="flex items-center justify-between py-8">
       {/* Left side */}
       <Link to={"/"}>
@@ -24,9 +30,11 @@ export const Header: React.FC<Props> = ({ className }) => (
         </div>
       </Link>
 
-      <div className="mx-10 flex-1">
-        <SearchInput />
-      </div>
+      {hasSearch && (
+        <div className="mx-10 flex-1">
+          <SearchInput />
+        </div>
+      )}
 
       {/* Right side */}
       <div className="flex items-center gap-3">
@@ -35,9 +43,11 @@ export const Header: React.FC<Props> = ({ className }) => (
           Login
         </Button>
 
-        <div>
-          <CartButton />
-        </div>
+        {hasCart && (
+          <div>
+            <CartButton />
+          </div>
+        )}
       </div>
     </Container>
   </header>

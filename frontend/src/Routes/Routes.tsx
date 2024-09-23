@@ -1,5 +1,6 @@
 import App from "@/App";
 import CartOrderLayout from "@/CartOrder/layout";
+import CheckOut from "@/CartOrder/page/CheckOut";
 import Dashboard from "@/Dashboard/Dashboard";
 import HomePage from "@/Page/HomePage/HomePage";
 import NotFound from "@/Page/NotFound/NotFound";
@@ -28,5 +29,8 @@ export const router = createBrowserRouter([
     {
         path:"/cart",
         element:<CartOrderLayout />,
+        children:[
+            {path:"", element:<CheckOut/>}
+        ]
     }
 ])
