@@ -146,7 +146,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
               <ArrowRight className="w-5 ml-2" />
             </Button>
           </Link> */}
-                <Link to="/chart">
+                <Link to="/cart">
                   <Button type="submit" className="w-full h-12 text-base">
                     Make Order
                     <ArrowRight className="w-5 ml-2" />
