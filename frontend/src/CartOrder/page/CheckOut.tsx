@@ -1,17 +1,44 @@
 import {
+  calcTaxOrder,
+  calcTotalAmountOrder,
+  getCartDetails,
+  getCartItemDetails,
+} from "@/lib";
+import {
   CheckOutItem,
   CheckoutItemsDetails,
   Container,
   Title,
   WhiteBlock,
 } from "@/Shared/Components/index";
+import { PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
+import { useCart } from "@/Shared/Hooks";
 import { Button, Input, Textarea } from "@/ui/components/ui";
+import Cookies from "js-cookie";
 import { ArrowRight, Package, Percent, Truck } from "lucide-react";
-import React from "react";
+
 
 type Props = {};
 
 const CheckOut = (props: Props) => {
+  const { totalAmount, updateItemQuantity, cartItems, removeCartItem } =
+    useCart();
+  const tax = calcTaxOrder(totalAmount);
+  const totalAmountOrder = calcTotalAmountOrder(totalAmount);
+  const token = Cookies.get("cartToken");
+
+
+  const onClickCountButton = (
+    cartItemId: number,
+    quantity: number,
+    type: "plus" | "minus"
+  ) => {
+    const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
+    if (token) {
+      updateItemQuantity(token, cartItemId, newQuantity);
+    }
+  };
+
   return (
     <Container className="mt-10">
       <Title
@@ -24,30 +51,27 @@ const CheckOut = (props: Props) => {
         <div className="flex flex-col gap-10 flex-1 mb-20">
           <WhiteBlock title="1. Cart">
             <div className="flex flex-col gap-5">
-              <CheckOutItem
-                id={1002}
-                details={
-                  "Pizza, yummy loremskjdn fskjdfksjd bfkjs dfkj shdkfj shkdfj skdj fks dfks dfk sjdbkfj sbdkfj bskdj bf ksjd bfksjb dfkj bskdjf bskjd bfksj bdfksbdkfj bskdbfkjskbdfkjsbfjsbdkffjbskdf skd bsk bdfks bdkjf bskdbfkjsd"
-                }
-                imageUrl={
-                  "https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp"
-                }
-                name={"Pizza"}
-                price={10}
-                quantity={1}
-              />
-              <CheckOutItem
-                id={1002}
-                details={
-                  "Pizza, yummy loremskjdn fskjdfksjd bfkjs dfkj shdkfj shkdfj skdj fks dfks dfk sjdbkfj sbdkfj bskdj bf ksjd bfksjb dfkj bskdjf bskjd bfksj bdfksbdkfj bskdbfkjskbdfkjsbfjsbdkffjbskdf skd bsk bdfks bdkjf bskdbfkjsd"
-                }
-                imageUrl={
-                  "https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp"
-                }
-                name={"Pizza"}
-                price={10}
-                quantity={1}
-              />
+              {cartItems.map((item) => (
+                <CheckOutItem
+                  key={item.cartItemId}
+                  id={item.cartItemId}
+                  details={
+                    item.size && item.pizzaType
+                      ? getCartItemDetails(
+                          item.pizzaType as PizzaType,
+                          item.size as PizzaSize,
+                          item.ingredients
+                        )
+                      : ""
+                  }
+                  imageUrl={item.imageUrl}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                  onClickCountButton={(type) => onClickCountButton(item.cartItemId,item.quantity,type)}
+                  onClickRemove={() => removeCartItem(token!, item.cartItemId)}
+                />
+              ))}
             </div>
           </WhiteBlock>
 
@@ -93,7 +117,9 @@ const CheckOut = (props: Props) => {
           <WhiteBlock className="p-6 sticky top-4">
             <div className="flex flex-col gap-1">
               <span className="text-xl">Total Amount:</span>
-              <span className="text-[34px] font-extrabold">$25</span>
+              <span className="text-[34px] font-extrabold">
+              {`${totalAmountOrder}`}
+              </span>
             </div>
 
             <CheckoutItemsDetails
@@ -103,7 +129,7 @@ const CheckOut = (props: Props) => {
                   Costs of Goods
                 </div>
               }
-              value="20"
+              value={String(totalAmount)}
             />
             <CheckoutItemsDetails
               title={
@@ -112,7 +138,7 @@ const CheckOut = (props: Props) => {
                   Taxes
                 </div>
               }
-              value="3"
+              value={String(tax)}
             />
             <CheckoutItemsDetails
               title={
@@ -121,7 +147,7 @@ const CheckOut = (props: Props) => {
                   Delivery
                 </div>
               }
-              value="2"
+              value={String(2)}
             />
 
             <Button

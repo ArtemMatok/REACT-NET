@@ -4,6 +4,8 @@ import { GetCartByUserIdOrToken, UpdateCartByAdding, UpdateCartByDeletingCartIte
 import { getCartDetails } from "@/lib";
 import { CartStateItem } from "@/lib/getCartDetails";
 import { CreateCartItem } from "../Models/ProductItem";
+import Cookies from "js-cookie";
+
 
 
 
@@ -13,7 +15,7 @@ export interface CartState{
     totalAmount:number;
     cartItems:CartStateItem[];
      //CartItems from cart
-    getCartItems:(userId?:string| undefined, token?:string | undefined) => Promise<void>;
+    getCartItems:(userId:string | undefined, cartToken:string) => Promise<void>;
 
     //Update item quantity
     updateItemQuantity:(token:string,cartItemId:number, quantity:number) =>Promise<void>;
@@ -31,7 +33,7 @@ export const useCartState = create<CartState>((set,get) => ({
     loading:false,
     totalAmount:0,
 
-    getCartItems:async(userId?:string | undefined, cartToken?:string | undefined) => {
+    getCartItems:async(userId, cartToken) => {
         try {
             set({loading:true, error:false});
             const data = await GetCartByUserIdOrToken(userId, cartToken);

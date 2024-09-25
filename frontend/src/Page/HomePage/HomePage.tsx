@@ -26,7 +26,7 @@ const HomePage = () => {
   const[isOpenModel, setIsOpenModel] = useState<boolean>(false);
   const location = useLocation();
   useEffect(()=>{
-    
+    document.title = "Pizza | HomePage";
     const getCategories = async () => {
       const res = await GetCategoriesWithProducts(location.search);
       console.log("res:", res);

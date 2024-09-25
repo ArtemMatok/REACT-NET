@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from "react";
+import React, { PropsWithChildren, useEffect, useState } from "react";
 import {
   Sheet,
   SheetClose,
@@ -14,12 +14,11 @@ import { Button } from "@/ui/components/ui";
 import { ArrowLeft, ArrowRight, Image } from "lucide-react";
 import { CardDrawerItem, Title } from "../index";
 import { getCartItemDetails } from "@/lib";
-import { useCartState } from "@/Shared/Store/Cart";
 import { PizzaSize, PizzaType } from "@/Shared/Constants/pizza";
 import Cookies from "js-cookie";
 import imageEmptyBox from "../../../../public/assets/images/—Pngtree—empty cartoon box_4696031.png";
-import clsx from "clsx";
 import { cn } from "@/ui/ui";
+import { useCart } from "@/Shared/Hooks";
 
 interface Props {
   className?: string;
@@ -31,25 +30,8 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
 }) => {
   const token = Cookies.get("cartToken");
 
-  const [
-    totalAmount,
-    getCartItems,
-    cartItems,
-    UpdateCartByItemQuantity,
-    removeCartItem,
-  ] = useCartState((state) => [
-    state.totalAmount,
-    state.getCartItems,
-    state.cartItems,
-    state.updateItemQuantity,
-    state.removeCartItem,
-  ]);
-
-  useEffect(() => {
-    if (token) {
-      getCartItems(undefined, token);
-    }
-  }, []);
+  const{totalAmount, updateItemQuantity, cartItems, removeCartItem,} = useCart()
+  const [redirecting, setRedirecting] = useState<boolean>();
 
   const onClickCountButton = (
     cartItemId: number,
@@ -58,7 +40,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
   ) => {
     const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
     if (token) {
-      UpdateCartByItemQuantity(token, cartItemId, newQuantity);
+      updateItemQuantity(token, cartItemId, newQuantity);
     }
   };
 
@@ -147,7 +129,7 @@ export const CardDrawer: React.FC<PropsWithChildren<Props>> = ({
             </Button>
           </Link> */}
                 <Link to="/cart">
-                  <Button type="submit" className="w-full h-12 text-base">
+                  <Button loading={redirecting} onClick={()=>setRedirecting(true) }type="submit" className="w-full h-12 text-base">
                     Make Order
                     <ArrowRight className="w-5 ml-2" />
                   </Button>
