@@ -7,6 +7,7 @@ import {
 import {
   CheckOutItem,
   CheckoutItemsDetails,
+  CheckOutSideBar,
   Container,
   Title,
   WhiteBlock,
@@ -17,16 +18,13 @@ import { Button, Input, Textarea } from "@/ui/components/ui";
 import Cookies from "js-cookie";
 import { ArrowRight, Package, Percent, Truck } from "lucide-react";
 
-
 type Props = {};
 
 const CheckOut = (props: Props) => {
   const { totalAmount, updateItemQuantity, cartItems, removeCartItem } =
     useCart();
-  const tax = calcTaxOrder(totalAmount);
-  const totalAmountOrder = calcTotalAmountOrder(totalAmount);
-  const token = Cookies.get("cartToken");
 
+  const token = Cookies.get("cartToken");
 
   const onClickCountButton = (
     cartItemId: number,
@@ -68,7 +66,9 @@ const CheckOut = (props: Props) => {
                   name={item.name}
                   price={item.price}
                   quantity={item.quantity}
-                  onClickCountButton={(type) => onClickCountButton(item.cartItemId,item.quantity,type)}
+                  onClickCountButton={(type) =>
+                    onClickCountButton(item.cartItemId, item.quantity, type)
+                  }
                   onClickRemove={() => removeCartItem(token!, item.cartItemId)}
                 />
               ))}
@@ -114,50 +114,7 @@ const CheckOut = (props: Props) => {
 
         {/* Right side */}
         <div className="w-[450px]">
-          <WhiteBlock className="p-6 sticky top-4">
-            <div className="flex flex-col gap-1">
-              <span className="text-xl">Total Amount:</span>
-              <span className="text-[34px] font-extrabold">
-              {`${totalAmountOrder}`}
-              </span>
-            </div>
-
-            <CheckoutItemsDetails
-              title={
-                <div className="flex items-center">
-                  <Package size={18} className="mr-2 text-gray-300" />
-                  Costs of Goods
-                </div>
-              }
-              value={String(totalAmount)}
-            />
-            <CheckoutItemsDetails
-              title={
-                <div className="flex items-center">
-                  <Percent size={18} className="mr-2 text-gray-300" />
-                  Taxes
-                </div>
-              }
-              value={String(tax)}
-            />
-            <CheckoutItemsDetails
-              title={
-                <div className="flex items-center">
-                  <Truck size={18} className="mr-2 text-gray-300" />
-                  Delivery
-                </div>
-              }
-              value={String(2)}
-            />
-
-            <Button
-              type="submit"
-              className="w-full h-14 rounded-2xl mt-6 text-base font-bold"
-            >
-              Go to payment
-              <ArrowRight className="w-5 ml-2" />
-            </Button>
-          </WhiteBlock>
+          <CheckOutSideBar totalAmount={totalAmount} />
         </div>
       </div>
     </Container>
