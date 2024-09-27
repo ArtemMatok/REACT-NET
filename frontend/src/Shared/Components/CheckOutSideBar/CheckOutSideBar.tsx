@@ -46,7 +46,7 @@ export const CheckOutSideBar: React.FC<Props> = ({ totalAmount,className }) => {
             Delivery
           </div>
         }
-        value={totalAmountOrder > 0 ? String(0) : String(2)}
+        value={totalAmountOrder > 0 ? String(2) : String(0)}
       />
 
       <Button
